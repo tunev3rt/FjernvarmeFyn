@@ -1,0 +1,25 @@
+﻿<Window x:Class="FjernvarmeFynLogin.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FjernvarmeFynLogin"
+        mc:Ignorable="d"
+        Title="MainWindow" Icon="../Pics/FjernvarmeFynLogoNoTextPNG.png" Height="1080" Width="1920" ResizeMode="CanMinimize" WindowState="Maximized">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFFFC638" Offset="1"/>
+            <GradientStop Color="White" Offset="0.4"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Source="../Pics/FjernvarmeFynLogoPNG.png" Grid.Row="0" HorizontalAlignment="Center" Height="250"/>
+        <Button x:Name="logInBtn" Style="{DynamicResource ButtonStyle}" Content="Log ind" FontWeight="Bold" Height="150" Width="800" FontSize="30" Grid.Row="1" Click="logInBtn_Click"/>
+        <Button x:Name="createUserBtn" Style="{DynamicResource ButtonStyle}" Content="Opret bruger" FontWeight="Bold" Height="150" Width="800" FontSize="30" Grid.Row="2" VerticalAlignment="Top" Click="createUserBtn_Click"/>
+    </Grid>
+</Window>

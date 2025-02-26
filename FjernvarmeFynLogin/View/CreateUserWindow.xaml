@@ -1,0 +1,48 @@
+﻿<Window x:Class="FjernvarmeFynLogin.View.CreateUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FjernvarmeFynLogin.View"
+        mc:Ignorable="d"
+        Title="CreateUserWindow" Icon="../Pics/FjernvarmeFynLogoNoTextPNG.png" Height="1080" Width="1920" ResizeMode="CanMinimize" WindowState="Maximized">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFFFC638" Offset="1"/>
+            <GradientStop Color="White" Offset="0.4"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Source="../Pics/FjernvarmeFynLogoNoTextPNG.png" Width="200" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="3"/>
+        <Label Content="Opret bruger" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" FontSize="80" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Fulde navn:" FontSize="35" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+        <Label Content="Afdeling:" FontSize="35" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+        <Label Content="Email:" FontSize="35" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"/>
+        <Label Content="Password:" FontSize="35" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1"/>
+        <Label Content="Bekræft password:" FontSize="35" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"/>
+        <TextBox x:Name="fullNameTB" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="departmentTB" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="emailTB" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="createPassPB" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="confirmPassPB" FontSize="35" PasswordChanged="confirmPassPB_PasswordChanged" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="confirmBtn" Content="Bekræft" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Top" IsEnabled="False" Click="confirmBtn_Click" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" IsDefault="True"/>
+        <Button x:Name="backBtn" Content="Tilbage" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Click="backBtn_Click"/>
+    </Grid>
+</Window>
