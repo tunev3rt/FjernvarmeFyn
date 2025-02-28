@@ -18,11 +18,20 @@
   <ItemGroup>
     <None Remove="Pics\FjernvarmeFynLogoNoTextPNG.png" />
     <None Remove="Pics\FjernvarmeFynLogoPNG.png" />
+    <None Remove="Pics\ongoingOval.png" />
+    <None Remove="View\graph.png" />
+    <None Remove="View\ongoingOval.png" />
+    <None Remove="View\Oval.png" />
+    <None Remove="View\solvedOval.png" />
+    <None Remove="View\unansweredOval.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Pics\FjernvarmeFynLogoNoTextPNG.png" />
     <Resource Include="Pics\FjernvarmeFynLogoPNG.png" />
+    <Resource Include="View\ongoingOval.png" />
+    <Resource Include="View\solvedOval.png" />
+    <Resource Include="View\unansweredOval.png" />
   </ItemGroup>
 
   <ItemGroup>
