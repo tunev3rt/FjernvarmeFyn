@@ -19,11 +19,6 @@ namespace FjernvarmeFynLogin.Viewmodel
         public string Department { get; set; }
         public string Password { get; set; }
 
-        public UserViewModel()
-        {
-
-        } 
-
         public UserViewModel(User user)
         {
             this.user = user;
@@ -32,19 +27,6 @@ namespace FjernvarmeFynLogin.Viewmodel
             Email = user.Email;
             Department = user.Department;
             Password = user.Password;
-        }
-
-        public void LogIn(string email, string password)
-        {
-            bool userFound = userRepo.LogIn(email, password);
-            if (userFound)
-            {
-                MessageBox.Show("Login godkendt");
-            }
-            else if (!userFound)
-            {
-                MessageBox.Show("Login mislykkedes. Prøv venligst igen");
-            }
         }
     }
 }
