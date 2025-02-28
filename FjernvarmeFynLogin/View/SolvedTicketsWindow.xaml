@@ -26,9 +26,9 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50"/>
-                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="250"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="230"/>
                             </Grid.ColumnDefinitions>
 
                             <!-- Priority Indicator -->
