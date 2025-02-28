@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -46,9 +46,9 @@ namespace FjernvarmeFynLogin.Model
             }
             users.Add(user);
             using (StreamWriter sw = new StreamWriter("Users.txt", true))
-            {
-                sw.WriteLine($"{user.Name};{user.Password}");
-            }
+                {
+                    sw.WriteLine($"{user.Name};{user.Password}");
+                }
             return user;
         }
 
@@ -71,7 +71,7 @@ namespace FjernvarmeFynLogin.Model
             return userFound;
         }
 
-        public List<User> GetAll()
+        public List<User> GetAll() 
         {
             return users;
         }

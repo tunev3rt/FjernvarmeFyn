@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Command\**" />
+    <EmbeddedResource Remove="Command\**" />
+    <None Remove="Command\**" />
+    <Page Remove="Command\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Pics\FjernvarmeFynLogoNoTextPNG.png" />
     <None Remove="Pics\FjernvarmeFynLogoPNG.png" />
     <None Remove="Pics\ongoingOval.png" />
@@ -25,6 +32,17 @@
     <Resource Include="View\ongoingOval.png" />
     <Resource Include="View\solvedOval.png" />
     <Resource Include="View\unansweredOval.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
