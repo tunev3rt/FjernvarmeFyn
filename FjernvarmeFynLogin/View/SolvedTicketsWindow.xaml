@@ -17,7 +17,7 @@
         <ListBox ItemsSource="{Binding FeedbackItems}" 
                  BorderThickness="0" Background="Transparent"
                  HorizontalAlignment="Center" VerticalAlignment="Center"
-                 Width="600" Height="700">
+                 Width="1000" Height="700">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -26,7 +26,7 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50"/>
-                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="150"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="150"/>
                             </Grid.ColumnDefinitions>
@@ -36,11 +36,11 @@
                                        Fill="{Binding PriorityColor}" VerticalAlignment="Center"/>
 
                             <!-- Feedback ID -->
-                            <TextBlock Text="{Binding FeedbackId}" FontSize="22" Foreground="White"
+                            <TextBlock Text="{Binding FeedbackID}" FontSize="22" Foreground="White"
                                        VerticalAlignment="Center" Grid.Column="1"/>
 
                             <!-- System Name -->
-                            <TextBlock Text="{Binding SystemName}" FontSize="22" Foreground="White"
+                            <TextBlock Text="{Binding InternalSystem}" FontSize="22" Foreground="White"
                                        VerticalAlignment="Center" Grid.Column="2"/>
 
                             <!-- Date -->

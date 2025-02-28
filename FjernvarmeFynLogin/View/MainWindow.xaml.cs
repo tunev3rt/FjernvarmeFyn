@@ -1,4 +1,5 @@
-﻿using FjernvarmeFynLogin.View;
+﻿using FjernvarmeFynLogin.Model;
+using FjernvarmeFynLogin.View;
 using FjernvarmeFynLogin.Viewmodel;
 using System.Text;
 using System.Windows;
