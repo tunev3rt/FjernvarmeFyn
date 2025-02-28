@@ -28,16 +28,25 @@ namespace FjernvarmeFynLogin.Viewmodel
 
         public void AddUser(string name, string department, string email, string password)
         {
-            User user = new User()
+            User user = null;
+            if (!string.IsNullOrEmpty(name) &&
+                !string.IsNullOrEmpty(department) &&
+                !string.IsNullOrEmpty(email) &&
+                !string.IsNullOrEmpty(password))
             {
-                Name = name,
-                Department = department,
-                Email = email,
-                Password = password
-            };
-            UserViewModel uvm = new UserViewModel(user);
-            UsersVM.Add(uvm);
-            userRepo.Add(user);
+                user = new User()
+                {
+                    Name = name,
+                    Department = department,
+                    Email = email,
+                    Password = password
+                };
+                userRepo.Add(user);
+                UserViewModel uvm = new UserViewModel(user);
+                UsersVM.Add(uvm);
+            }
+            else
+                throw new Exception("Not all arguments are valid");
         }
 
         public void LogIn(string email, string password)

@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Command\**" />
+    <EmbeddedResource Remove="Command\**" />
+    <None Remove="Command\**" />
+    <Page Remove="Command\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Pics\FjernvarmeFynLogoNoTextPNG.png" />
     <None Remove="Pics\FjernvarmeFynLogoPNG.png" />
   </ItemGroup>
@@ -16,10 +23,6 @@
   <ItemGroup>
     <Resource Include="Pics\FjernvarmeFynLogoNoTextPNG.png" />
     <Resource Include="Pics\FjernvarmeFynLogoPNG.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Command\" />
   </ItemGroup>
 
   <ItemGroup>
