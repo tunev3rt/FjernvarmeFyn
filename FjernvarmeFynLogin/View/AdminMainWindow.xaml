@@ -18,9 +18,6 @@
             <RowDefinition Height="699*"/>
         </Grid.RowDefinitions>
         <Button x:Name="logoutBtn" Content="Log ud" Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left" Margin="38,44,0,0" VerticalAlignment="Top" FontSize="40" Width="300" Height="100"/>
-        <Image x:Name="unansweredTickets" Margin="-34,161,1121,70" Source="../Pics/Oval.png" Stretch="Fill" Grid.RowSpan="2"/>
-        <Image x:Name="ongoingTickets" Margin="544,161,544,70" Source="../Pics/Oval.png" Stretch="Fill" Grid.RowSpan="2"/>
-        <Image x:Name="solvedTickets" Margin="1123,161,-35,70" Source="../Pics/Oval.png" Stretch="Fill" Grid.RowSpan="2"/>
         <Label x:Name="amountOfUnanswered" Content="0" HorizontalAlignment="Left" Margin="342,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" Grid.Row="1"/>
         <Label x:Name="amountOfOngoing" Content="0" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1"/>
         <Label x:Name="amountOfClosed" Content="0" HorizontalAlignment="Left" Margin="1501,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1"/>
@@ -28,6 +25,51 @@
         <Label Content="Ubesvaret" HorizontalAlignment="Left" Margin="250,281,0,0" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant"/>
         <Label Content="On-going" HorizontalAlignment="Center" Margin="0,281,0,0" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant"/>
         <Label Content="Løst" HorizontalAlignment="Left" Margin="1477,281,0,0" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant"/>
+        <Image x:Name="unansweredTickets" Margin="-34,161,1121,70" Source="../Pics/Oval.png" Stretch="Fill" Grid.RowSpan="2" MouseDown="unansweredTickets_MouseDown">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image x:Name="ongoingTickets" Margin="544,161,544,70" Source="../Pics/Oval.png" Stretch="Fill" Grid.RowSpan="2" MouseDown="ongoingTickets_MouseDown">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <Image x:Name="solvedTickets" Margin="1123,161,-35,70" Source="../Pics/Oval.png" Stretch="Fill" Grid.RowSpan="2" MouseDown="solvedTickets_MouseDown">
+            <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
     </Grid>
 
 </Window>
