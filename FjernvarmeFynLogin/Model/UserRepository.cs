@@ -34,10 +34,10 @@ namespace FjernvarmeFynLogin.Model
             {
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO EMPLOYEE (Email, FullName, Department, Passcode) " +
-                    "VALUES(@Email,@FullName,@Department,@Passcode)" +
+                    "VALUES(@Email,@FullName,@Department,@Passcode)",
                     con))
                 {
-                    cmd.Parameters.Add("@Email", SqlDbType.Int).Value = user.Email;
+                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = user.Email;
                     cmd.Parameters.Add("@FullName", SqlDbType.NVarChar).Value = user.Name;
                     cmd.Parameters.Add("@Department", SqlDbType.NVarChar).Value = user.Department;
                     cmd.Parameters.Add("@Passcode", SqlDbType.Int).Value = user.Password;
