@@ -22,7 +22,7 @@ namespace FjernvarmeFynLogin.View
     /// </summary>
     public partial class LogInWindow : Window
     {
-        UserViewModel uvm = new UserViewModel();
+        MainViewModel mvm = new MainViewModel();
         public LogInWindow()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace FjernvarmeFynLogin.View
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
             if (File.Exists("Users.txt"))
-                uvm.LogIn(emailTB.Text, passwordTB.Password);
+                mvm.LogIn(emailTB.Text, passwordTB.Password);
             else
                 MessageBox.Show("Der er ingen registrerede brugere i systemet.\nOpret venligst en bruger");
         }
