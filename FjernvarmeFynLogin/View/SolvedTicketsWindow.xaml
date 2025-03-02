@@ -17,7 +17,7 @@
         <ListBox ItemsSource="{Binding FeedbackItems}" 
                  BorderThickness="0" Background="Transparent"
                  HorizontalAlignment="Center" VerticalAlignment="Center"
-                 Width="1000" Height="700">
+                 Width="1000" Height="700" SelectionChanged="ListBox_SelectionChanged">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>

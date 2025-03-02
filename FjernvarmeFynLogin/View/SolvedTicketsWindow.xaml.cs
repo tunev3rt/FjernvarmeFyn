@@ -35,5 +35,15 @@ namespace FjernvarmeFynLogin.View
         {
             this.Close();
         }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                var selectedFeedback = (Feedback)e.AddedItems[0];
+                var detailsWindow = new TicketDetailsWindow(selectedFeedback);
+                detailsWindow.ShowDialog();
+            }
+        }
     }
 }
