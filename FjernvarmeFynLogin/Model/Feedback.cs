@@ -15,6 +15,7 @@ namespace FjernvarmeFynLogin.Model
         public int PriorityLevel { get; set; }
         public int InternalSystem { get; set; }
         public string DescriptiveText { get; set; }
+        public string FeedbackStatus { get; set; } = "Unanswered";
         public SolidColorBrush PriorityColor => GetPriorityColor();
 
         public Feedback() 

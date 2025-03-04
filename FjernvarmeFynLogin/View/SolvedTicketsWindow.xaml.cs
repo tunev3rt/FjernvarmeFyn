@@ -22,12 +22,14 @@ namespace FjernvarmeFynLogin.View
     public partial class SolvedTicketsWindow : Window
     {
         public ObservableCollection<Feedback> FeedbackItems { get; set; }
+        private List<Feedback> UnsortedFeedback;
         private FeedbackRepository feedbackRepository;
         public SolvedTicketsWindow()
         {
             InitializeComponent();
             feedbackRepository = new FeedbackRepository();
-            FeedbackItems = new ObservableCollection<Feedback>(feedbackRepository.GetAll());
+            UnsortedFeedback = feedbackRepository.GetAll();
+            FeedbackItems = new ObservableCollection<Feedback>(UnsortedFeedback.Where(f => f.FeedbackStatus == "Solved"));
             DataContext = this;
         }
 
@@ -43,6 +45,10 @@ namespace FjernvarmeFynLogin.View
                 var selectedFeedback = (Feedback)e.AddedItems[0];
                 var detailsWindow = new TicketDetailsWindow(selectedFeedback);
                 detailsWindow.ShowDialog();
+                if (detailsWindow.IsAccepted)
+                {
+                    feedbackRepository.Update(selectedFeedback);
+                }
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using FjernvarmeFynLogin.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,16 +22,43 @@ namespace FjernvarmeFynLogin.View
     public partial class TicketDetailsWindow : Window
     {
         public Feedback CurrentTicket { get; set; }
+        public bool IsAccepted { get; set; } = false;
         public TicketDetailsWindow(Feedback ticket)
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             CurrentTicket = ticket;
             DataContext = CurrentTicket;
+            if (CurrentTicket.FeedbackStatus == "Accepted")
+            {
+                acceptBtn.Content = "Færdig";
+            }
+            else if (CurrentTicket.FeedbackStatus == "Solved")
+            {
+                acceptBtn.IsEnabled = false;
+            }
         }
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
+            if (CurrentTicket.FeedbackStatus == "Accepted")
+            {
+                CurrentTicket.FeedbackStatus = "Solved";
+                IsAccepted = true;
+                this.Close();
+            }
+            else if (CurrentTicket.FeedbackStatus == "Unanswered")
+            {
+                CurrentTicket.FeedbackStatus = "Accepted";
+                IsAccepted = true;
+                this.Close();
+            }
+            else if (CurrentTicket.FeedbackStatus == "Solved")
+            {
+                CurrentTicket.FeedbackStatus = "Delete";
+                IsAccepted = true;
+                this.Close();
+            }
 
         }
 

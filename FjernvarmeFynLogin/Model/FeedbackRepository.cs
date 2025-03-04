@@ -38,11 +38,31 @@ namespace FjernvarmeFynLogin.Model
                     cmd.Parameters.Add("@PriorityLevel", SqlDbType.Int).Value = feedback.PriorityLevel;
                     cmd.Parameters.Add("@InternalSystem", SqlDbType.Int).Value = feedback.InternalSystem;
                     cmd.Parameters.Add("@DescriptiveText", SqlDbType.NVarChar).Value = feedback.DescriptiveText;
+                    cmd.Parameters.Add("@FeedbackStatus", SqlDbType.NVarChar).Value = feedback.FeedbackStatus;
                     feedback.FeedbackID = Convert.ToInt32(cmd.ExecuteScalar());
                     tickets.Add(feedback);
                 }
             }
             return feedback;
+        }
+
+        public void Update(Feedback feedback)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("UPDATE FEEDBACK SET FeedbackType = @FeedbackType, DateAndTime = @DateAndTime, PriorityLevel = @PriorityLevel, InternalSystem = @InternalSystem, DescriptiveText = @DescriptiveText, FeedbackStatus = @FeedbackStatus WHERE FeedbackID = @FeedbackID", con))
+                {
+                    cmd.Parameters.Add("@FeedbackType", SqlDbType.NVarChar).Value = feedback.FeedbackType;
+                    cmd.Parameters.Add("@DateAndTime", SqlDbType.DateTime).Value = feedback.FormattedDate;
+                    cmd.Parameters.Add("@PriorityLevel", SqlDbType.Int).Value = feedback.PriorityLevel;
+                    cmd.Parameters.Add("@InternalSystem", SqlDbType.Int).Value = feedback.InternalSystem;
+                    cmd.Parameters.Add("@DescriptiveText", SqlDbType.NVarChar).Value = feedback.DescriptiveText;
+                    cmd.Parameters.Add("@FeedbackStatus", SqlDbType.NVarChar).Value = feedback.FeedbackStatus;
+                    cmd.Parameters.Add("@FeedbackID", SqlDbType.Int).Value = feedback.FeedbackID;
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<Feedback> GetAll()
@@ -63,7 +83,8 @@ namespace FjernvarmeFynLogin.Model
                                 FormattedDate = reader.GetDateTime(2),
                                 PriorityLevel = reader.GetInt32(3),
                                 InternalSystem = reader.GetInt32(4),
-                                DescriptiveText = reader.GetString(5)
+                                DescriptiveText = reader.GetString(5),
+                                FeedbackStatus = reader.GetString(6)
                             };
                             tickets.Add(feedback);
                         }
