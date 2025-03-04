@@ -1,4 +1,5 @@
-﻿using FjernvarmeFynLogin.View;
+﻿using FjernvarmeFynLogin.Model;
+using FjernvarmeFynLogin.View;
 using FjernvarmeFynLogin.Viewmodel;
 using System.Text;
 using System.Windows;
@@ -37,6 +38,12 @@ namespace FjernvarmeFynLogin
         {
             LogInWindow logInWindow = new LogInWindow();
             logInWindow.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AdminMainWindow adminMainWindow = new AdminMainWindow();
+            adminMainWindow.Show();
         }
     }
 }
