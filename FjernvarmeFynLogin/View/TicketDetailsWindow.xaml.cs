@@ -23,6 +23,7 @@ namespace FjernvarmeFynLogin.View
     {
         public Feedback CurrentTicket { get; set; }
         public bool IsAccepted { get; set; } = false;
+        public bool ToBeDeleted { get; set; } = false;
         public TicketDetailsWindow(Feedback ticket)
         {
             InitializeComponent();
@@ -53,18 +54,13 @@ namespace FjernvarmeFynLogin.View
                 IsAccepted = true;
                 this.Close();
             }
-            else if (CurrentTicket.FeedbackStatus == "Solved")
-            {
-                CurrentTicket.FeedbackStatus = "Delete";
-                IsAccepted = true;
-                this.Close();
-            }
 
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-
+            ToBeDeleted = true;
+            this.Close();
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

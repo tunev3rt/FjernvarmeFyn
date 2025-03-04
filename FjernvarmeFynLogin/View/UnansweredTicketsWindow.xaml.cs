@@ -48,8 +48,13 @@ namespace FjernvarmeFynLogin.View
                 if (detailsWindow.IsAccepted)
                 {
                     feedbackRepository.Update(selectedFeedback);
+                    FeedbackItems.Remove(selectedFeedback);
                 }
-            }
+                if (detailsWindow.ToBeDeleted)
+                {
+                    FeedbackItems.Remove(selectedFeedback);
+                    feedbackRepository.Delete(selectedFeedback);
+                }
         }
     }
 }

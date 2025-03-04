@@ -65,6 +65,19 @@ namespace FjernvarmeFynLogin.Model
             }
         }
 
+        public void Delete(Feedback feedback)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM FEEDBACK WHERE FeedbackID = @FeedbackID", con))
+                {
+                    cmd.Parameters.Add("@FeedbackID", SqlDbType.Int).Value = feedback.FeedbackID;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         public List<Feedback> GetAll()
         {
             using (SqlConnection con = new SqlConnection(ConnectionString))

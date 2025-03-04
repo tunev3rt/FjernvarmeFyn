@@ -45,9 +45,10 @@ namespace FjernvarmeFynLogin.View
                 var selectedFeedback = (Feedback)e.AddedItems[0];
                 var detailsWindow = new TicketDetailsWindow(selectedFeedback);
                 detailsWindow.ShowDialog();
-                if (detailsWindow.IsAccepted)
+                if (detailsWindow.ToBeDeleted)
                 {
-                    feedbackRepository.Update(selectedFeedback);
+                    FeedbackItems.Remove(selectedFeedback);
+                    feedbackRepository.Delete(selectedFeedback);
                 }
             }
         }
