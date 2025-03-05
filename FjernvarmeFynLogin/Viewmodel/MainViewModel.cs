@@ -51,14 +51,22 @@ namespace FjernvarmeFynLogin.Viewmodel
 
         public void LogIn(string email, string password)
         {
-            bool userFound = userRepo.LogIn(email, password);
-            if (userFound)
+            bool adminFound = userRepo.LogIn(email, password);
+            if (adminFound)
             {
                 MessageBox.Show("Login godkendt");
             }
-            else if (!userFound)
+            else if (!adminFound)
             {
-                MessageBox.Show("Login mislykkedes. Prøv venligst igen");
+                bool userFound = userRepo.LogIn2(email, password);
+                if (userFound)
+                {
+                    MessageBox.Show("Login godkendt");
+                }
+                else if (!userFound)
+                {
+                    MessageBox.Show("Login mislykkedes. Prøv venligst igen");
+                }
             }
         }
     }

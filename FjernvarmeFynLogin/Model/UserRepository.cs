@@ -33,11 +33,11 @@ namespace FjernvarmeFynLogin.Model
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO EMPLOYEE (Email, FullName, Department, Passcode) " +
-                    "VALUES(@Email,@FullName,@Department,@Passcode)",
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO EMPLOYEE (EmployeeEmail, FullName, Department, Passcode) " +
+                    "VALUES(@EmployeeEmail,@FullName,@Department,@Passcode)",
                     con))
                 {
-                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = user.Email;
+                    cmd.Parameters.Add("@EmployeeEmail", SqlDbType.NVarChar).Value = user.Email;
                     cmd.Parameters.Add("@FullName", SqlDbType.NVarChar).Value = user.Name;
                     cmd.Parameters.Add("@Department", SqlDbType.NVarChar).Value = user.Department;
                     cmd.Parameters.Add("@Passcode", SqlDbType.NVarChar).Value = user.Password;
@@ -52,9 +52,33 @@ namespace FjernvarmeFynLogin.Model
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM EMPLOYEE WHERE Email = @Email AND Passcode = @Passcode", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM MANAGER WHERE ManagerEmail = @ManagerEmail AND Passcode = @Passcode", con))
                 {
-                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = email;
+                    cmd.Parameters.Add("@ManagerEmail", SqlDbType.NVarChar).Value = email;
+                    cmd.Parameters.Add("@Passcode", SqlDbType.NVarChar).Value = password;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        public bool LogIn2(string email, string password)
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM EMPLOYEE WHERE EmployeeEmail = @EmployeeEmail AND Passcode = @Passcode", con))
+                {
+                    cmd.Parameters.Add("@EmployeeEmail", SqlDbType.NVarChar).Value = email;
                     cmd.Parameters.Add("@Passcode", SqlDbType.NVarChar).Value = password;
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
