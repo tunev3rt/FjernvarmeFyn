@@ -30,10 +30,7 @@ namespace FjernvarmeFynLogin.View
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists("Users.txt"))
-                mvm.LogIn(emailTB.Text, passwordTB.Password);
-            else
-                MessageBox.Show("Der er ingen registrerede brugere i systemet.\nOpret venligst en bruger");
+            mvm.LogIn(emailTB.Text, passwordTB.Password);
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
