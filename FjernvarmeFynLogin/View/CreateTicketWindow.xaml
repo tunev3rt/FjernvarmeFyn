@@ -33,11 +33,11 @@
         <Image Source="../Pics/FjernvarmeFynLogoNoTextPNG.png" Width="200" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="1" Grid.Column="5"/>
 
 
-        <Button x:Name="backBtn" Content="Tilbage" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Click="backBtn_Click"/>
+        <Button x:Name="backBtn" Content="Tilbage" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1"/>
         <Button x:Name="faultBtn" Content="Fejlmelding" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="325" Height="325" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2"/>
         <Button x:Name="wishBtn" Content="Ønske" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="325" Height="325" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="3"/>
         <Button x:Name="ftBtn" Content="Feature" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="325" Height="325" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="4"/>
-        <Button x:Name="earlierBtn" Content="Tidligere sager" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="5" Click="backBtn_Click"/>
+        <Button x:Name="earlierBtn" Content="Tidligere sager" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="5"/>
         <Label Height="80" Width="324" Content="Opret Ticket" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="3" VerticalAlignment="Bottom" FontSize="48" FontWeight="Bold"/>
     </Grid>
 </Window>
