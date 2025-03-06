@@ -1,4 +1,5 @@
-﻿using FjernvarmeFynLogin.Model;
+﻿using FjernvarmeFynLogin.Command;
+using FjernvarmeFynLogin.Model;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace FjernvarmeFynLogin.Viewmodel
 {
@@ -18,10 +20,15 @@ namespace FjernvarmeFynLogin.Viewmodel
         public string Email { get; set; }
         public string Department { get; set; }
         public string Password { get; set; }
+        public string PasswordConfirm { get; set; }
+
+        public ICommand AddUserCommand { get; set; }
+
+        public Action CloseWindowAction { get; set; }
 
         public UserViewModel()
         {
-
+            AddUserCommand = new AddUserCommand(() => CloseWindowAction?.Invoke());
         }
 
         public UserViewModel(User user)
@@ -34,27 +41,9 @@ namespace FjernvarmeFynLogin.Viewmodel
             Password = user.Password;
         }
 
-        public void AddUser(string name, string department, string email, string password)
+        public void AddUser(User user)
         {
-            User user = null;
-            if (!string.IsNullOrEmpty(name) &&
-                !string.IsNullOrEmpty(department) &&
-                !string.IsNullOrEmpty(email) &&
-                !string.IsNullOrEmpty(password))
-            {
-                user = new User()
-                {
-                    Name = name,
-                    Department = department,
-                    Email = email,
-                    Password = password
-                };
-                userRepo.Add(user);
-                UserViewModel uvm = new UserViewModel(user);
-                //UsersVM.Add(uvm);
-            }
-            else
-                throw new Exception("Not all arguments are valid");
+            userRepo.Add(user);
         }
     }
 }

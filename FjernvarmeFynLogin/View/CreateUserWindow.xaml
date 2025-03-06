@@ -37,12 +37,12 @@
         <Label Content="Email:" FontSize="35" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"/>
         <Label Content="Password:" FontSize="35" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1"/>
         <Label Content="Bekræft password:" FontSize="35" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"/>
-        <TextBox x:Name="fullNameTB" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="departmentTB" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="emailTB" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <PasswordBox x:Name="createPassPB" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <PasswordBox x:Name="confirmPassPB" FontSize="35" PasswordChanged="confirmPassPB_PasswordChanged" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Button x:Name="confirmBtn" Content="Bekræft" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Top" IsEnabled="False" Click="confirmBtn_Click" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" IsDefault="True"/>
+        <TextBox x:Name="fullNameTB" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="departmentTB" Text="{Binding Department, UpdateSourceTrigger=PropertyChanged}" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="emailTB" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="createPassPB" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="confirmPassPB" Text="{Binding PasswordConfirm, UpdateSourceTrigger=PropertyChanged}" FontSize="35" HorizontalContentAlignment="Center" Height="50" Width="1200" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="confirmBtn" Command="{Binding AddUserCommand}" CommandParameter="{Binding}" Content="Bekræft" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Top" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" IsDefault="True"/>
         <Button x:Name="backBtn" Content="Tilbage" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Click="backBtn_Click"/>
     </Grid>
 </Window>

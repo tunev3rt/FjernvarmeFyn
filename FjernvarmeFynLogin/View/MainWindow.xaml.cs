@@ -28,10 +28,7 @@ namespace FjernvarmeFynLogin
         private void createUserBtn_Click(object sender, RoutedEventArgs e)
         {
             CreateUserWindow createUserWindow = new CreateUserWindow();
-            if (createUserWindow.ShowDialog() == true)
-            {
-                mvm.AddUser(createUserWindow.Name, createUserWindow.Department, createUserWindow.Email, createUserWindow.Password);
-            }
+            createUserWindow.Show();
         }
 
         private void logInBtn_Click(object sender, RoutedEventArgs e)
