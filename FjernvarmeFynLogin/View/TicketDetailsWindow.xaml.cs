@@ -1,4 +1,5 @@
 ﻿using FjernvarmeFynLogin.Model;
+using FjernvarmeFynLogin.Viewmodel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,10 +22,10 @@ namespace FjernvarmeFynLogin.View
     /// </summary>
     public partial class TicketDetailsWindow : Window
     {
-        public Feedback CurrentTicket { get; set; }
+        public FeedbackViewModel CurrentTicket { get; set; }
         public bool IsAccepted { get; set; } = false;
         public bool ToBeDeleted { get; set; } = false;
-        public TicketDetailsWindow(Feedback ticket)
+        public TicketDetailsWindow(FeedbackViewModel ticket)
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
