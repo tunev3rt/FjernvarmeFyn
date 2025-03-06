@@ -24,11 +24,13 @@ namespace FjernvarmeFynLogin.View
             InitializeComponent();
         }
 
-        private void faultBtn_Click(object sender, RoutedEventArgs e)
+     
+
+        private void bugBtn_Click(object sender, RoutedEventArgs e)
         {
-            //CreateBugWindow createBugWindow = new CreateBugWindow();
+            SubmitBugWindow submitBugWindow = new SubmitBugWindow();
             {
-                //createBugWindow.ShowDialog()
+                submitBugWindow.ShowDialog();
             }
         }
 
