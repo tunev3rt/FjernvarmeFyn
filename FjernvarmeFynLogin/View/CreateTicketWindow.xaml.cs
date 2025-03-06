@@ -23,5 +23,25 @@ namespace FjernvarmeFynLogin.View
         {
             InitializeComponent();
         }
+
+     
+
+        private void bugBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SubmitBugWindow submitBugWindow = new SubmitBugWindow();
+            {
+                submitBugWindow.ShowDialog();
+            }
+        }
+
+        private void wishBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void featureBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
