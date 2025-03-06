@@ -11,9 +11,12 @@ namespace FjernvarmeFynLogin.Viewmodel
 {
     public class FeedbackViewModel
     {
+        public int UnansweredTickets { get; set; } = 0;
+        public int OngoingTickets { get; set; } = 0;
+        public int SolvedTickets { get; set; } = 0;
         public Feedback feedback;
         private FeedbackRepository feedbackRepo = new FeedbackRepository();
-        public ObservableCollection<FeedbackViewModel> FeedbackVM {  get; set; }
+        public ObservableCollection<FeedbackViewModel> FeedbackVM { get; set; }
         //FeedbackItems = new ObservableCollection<Feedback>(UnsortedFeedback.Where(f => f.FeedbackStatus == "Unanswered"));
 
         public FeedbackViewModel(int window)
@@ -46,7 +49,13 @@ namespace FjernvarmeFynLogin.Viewmodel
                 }
             }
         }
+        public FeedbackViewModel()
+        {
+            UnansweredTickets = feedbackRepo.GetAllUnanswered().Count;
+            OngoingTickets = feedbackRepo.GetAllAccepted().Count;
+            SolvedTickets = feedbackRepo.GetAllSolved().Count;
 
+        }
         public void Update(FeedbackViewModel feedbackViewModel)
         {
             feedback = new Feedback

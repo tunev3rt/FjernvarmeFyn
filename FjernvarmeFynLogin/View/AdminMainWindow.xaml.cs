@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FjernvarmeFynLogin.Viewmodel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,13 @@ namespace FjernvarmeFynLogin.View
     /// </summary>
     public partial class AdminMainWindow : Window
     {
+        private FeedbackViewModel fvm;
+
         public AdminMainWindow()
         {
             InitializeComponent();
+            fvm = new FeedbackViewModel();
+            DataContext = fvm;
         }
 
         private void unansweredTickets_MouseDown(object sender, MouseButtonEventArgs e) // Åbner nyt vindue med ubesvarede tickets
