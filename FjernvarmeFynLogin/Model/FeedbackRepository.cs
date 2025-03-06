@@ -39,7 +39,7 @@ namespace FjernvarmeFynLogin.Model
                     cmd.Parameters.Add("@InternalSystem", SqlDbType.Int).Value = feedback.InternalSystem;
                     cmd.Parameters.Add("@DescriptiveText", SqlDbType.NVarChar).Value = feedback.DescriptiveText;
                     cmd.Parameters.Add("@FeedbackStatus", SqlDbType.NVarChar).Value = feedback.FeedbackStatus;
-                    feedback.FeedbackID = Convert.ToInt32(cmd.ExecuteScalar());
+                    feedback.FeedbackId = Convert.ToInt32(cmd.ExecuteScalar());
                     tickets.Add(feedback);
                 }
             }
@@ -59,7 +59,7 @@ namespace FjernvarmeFynLogin.Model
                     cmd.Parameters.Add("@InternalSystem", SqlDbType.Int).Value = feedback.InternalSystem;
                     cmd.Parameters.Add("@DescriptiveText", SqlDbType.NVarChar).Value = feedback.DescriptiveText;
                     cmd.Parameters.Add("@FeedbackStatus", SqlDbType.NVarChar).Value = feedback.FeedbackStatus;
-                    cmd.Parameters.Add("@FeedbackID", SqlDbType.Int).Value = feedback.FeedbackID;
+                    cmd.Parameters.Add("@FeedbackID", SqlDbType.Int).Value = feedback.FeedbackId;
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -72,7 +72,7 @@ namespace FjernvarmeFynLogin.Model
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("DELETE FROM FEEDBACK WHERE FeedbackID = @FeedbackID", con))
                 {
-                    cmd.Parameters.Add("@FeedbackID", SqlDbType.Int).Value = feedback.FeedbackID;
+                    cmd.Parameters.Add("@FeedbackID", SqlDbType.Int).Value = feedback.FeedbackId;
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -91,7 +91,94 @@ namespace FjernvarmeFynLogin.Model
                         {
                             Feedback feedback = new Feedback()
                             {
-                                FeedbackID = reader.GetInt32(0),
+                                FeedbackId = reader.GetInt32(0),
+                                FeedbackType = reader.GetString(1),
+                                FormattedDate = reader.GetDateTime(2),
+                                PriorityLevel = reader.GetInt32(3),
+                                InternalSystem = reader.GetInt32(4),
+                                DescriptiveText = reader.GetString(5),
+                                FeedbackStatus = reader.GetString(6)
+                            };
+                            tickets.Add(feedback);
+                        }
+                    }
+                }
+            }
+            return tickets;
+        }
+        public List<Feedback> GetAllUnanswered()
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM FEEDBACK WHERE FeedbackStatus = @FeedbackStatus", con))
+                {
+                    cmd.Parameters.Add("@FeedbackStatus", SqlDbType.NVarChar).Value = "Unanswered";
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Feedback feedback = new Feedback()
+                            {
+                                FeedbackId = reader.GetInt32(0),
+                                FeedbackType = reader.GetString(1),
+                                FormattedDate = reader.GetDateTime(2),
+                                PriorityLevel = reader.GetInt32(3),
+                                InternalSystem = reader.GetInt32(4),
+                                DescriptiveText = reader.GetString(5),
+                                FeedbackStatus = reader.GetString(6)
+                            };
+                            tickets.Add(feedback);
+                        }
+                    }
+                }
+            }
+            return tickets;
+        }
+        public List<Feedback> GetAllAccepted()
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM FEEDBACK WHERE FeedbackStatus = @FeedbackStatus", con))
+                {
+                    cmd.Parameters.Add("@FeedbackStatus", SqlDbType.NVarChar).Value = "Accepted";
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Feedback feedback = new Feedback()
+                            {
+                                FeedbackId = reader.GetInt32(0),
+                                FeedbackType = reader.GetString(1),
+                                FormattedDate = reader.GetDateTime(2),
+                                PriorityLevel = reader.GetInt32(3),
+                                InternalSystem = reader.GetInt32(4),
+                                DescriptiveText = reader.GetString(5),
+                                FeedbackStatus = reader.GetString(6)
+                            };
+                            tickets.Add(feedback);
+                        }
+                    }
+                }
+            }
+            return tickets;
+        }
+        public List<Feedback> GetAllSolved()
+        {
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM FEEDBACK WHERE FeedbackStatus = @FeedbackStatus", con))
+                {
+                    cmd.Parameters.Add("@FeedbackStatus", SqlDbType.NVarChar).Value = "Solved";
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Feedback feedback = new Feedback()
+                            {
+                                FeedbackId = reader.GetInt32(0),
                                 FeedbackType = reader.GetString(1),
                                 FormattedDate = reader.GetDateTime(2),
                                 PriorityLevel = reader.GetInt32(3),
