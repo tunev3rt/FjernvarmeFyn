@@ -26,7 +26,7 @@ namespace FjernvarmeFynLogin.Command
         {
             if (parameter is UserViewModel uvm)
             {
-                uvm.Add
+                //uvm.Add
             }
         }
     }
