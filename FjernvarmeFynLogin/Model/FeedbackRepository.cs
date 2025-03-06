@@ -9,6 +9,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration.Json;
 using System.Data;
 using Microsoft.Extensions.Configuration;
+using FjernvarmeFynLogin.DBConnection;
 
 namespace FjernvarmeFynLogin.Model
 {
@@ -18,11 +19,7 @@ namespace FjernvarmeFynLogin.Model
         private List<Feedback> tickets = new List<Feedback>();
         public FeedbackRepository()
         {
-            IConfigurationRoot config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-            ConnectionString = config.GetConnectionString("MyDBConnection");
+            ConnectionString = DBConnectionManager.GetConnectionString();
         }
         public Feedback Add(Feedback feedback)
         {

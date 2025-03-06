@@ -9,13 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Command\**" />
-    <EmbeddedResource Remove="Command\**" />
-    <None Remove="Command\**" />
-    <Page Remove="Command\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Pics\FjernvarmeFynLogoNoTextPNG.png" />
     <None Remove="Pics\FjernvarmeFynLogoPNG.png" />
     <None Remove="Pics\Oval.png" />

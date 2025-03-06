@@ -1,4 +1,5 @@
-﻿using FjernvarmeFynLogin.Model;
+﻿using FjernvarmeFynLogin.Authentication;
+using FjernvarmeFynLogin.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -51,14 +52,14 @@ namespace FjernvarmeFynLogin.Viewmodel
 
         public void LogIn(string email, string password)
         {
-            bool adminFound = userRepo.LogIn(email, password);
+            bool adminFound = LogInHandler.LogIn(email, password);
             if (adminFound)
             {
                 MessageBox.Show("Login godkendt");
             }
             else if (!adminFound)
             {
-                bool userFound = userRepo.LogIn2(email, password);
+                bool userFound = LogInHandler.LogIn2(email, password);
                 if (userFound)
                 {
                     MessageBox.Show("Login godkendt");

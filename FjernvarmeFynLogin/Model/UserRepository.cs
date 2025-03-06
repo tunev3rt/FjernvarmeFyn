@@ -9,6 +9,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration.Json;
 using System.Data;
 using Microsoft.Extensions.Configuration;
+using FjernvarmeFynLogin.DBConnection;
 
 namespace FjernvarmeFynLogin.Model
 {
@@ -19,13 +20,7 @@ namespace FjernvarmeFynLogin.Model
 
         public UserRepository()
         {
-            IConfigurationRoot config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
-
-            users = new List<User>();
-
-            ConnectionString = config.GetConnectionString("MyDBConnection");
+            ConnectionString = DBConnectionManager.GetConnectionString();
         }
 
         public User Add(User user)
@@ -45,54 +40,6 @@ namespace FjernvarmeFynLogin.Model
                 }
             }
             return user;
-        }
-
-        public bool LogIn(string email, string password)
-        {
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM MANAGER WHERE ManagerEmail = @ManagerEmail AND Passcode = @Passcode", con))
-                {
-                    cmd.Parameters.Add("@ManagerEmail", SqlDbType.NVarChar).Value = email;
-                    cmd.Parameters.Add("@Passcode", SqlDbType.NVarChar).Value = password;
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-        }
-
-        public bool LogIn2(string email, string password)
-        {
-            using (SqlConnection con = new SqlConnection(ConnectionString))
-            {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM EMPLOYEE WHERE EmployeeEmail = @EmployeeEmail AND Passcode = @Passcode", con))
-                {
-                    cmd.Parameters.Add("@EmployeeEmail", SqlDbType.NVarChar).Value = email;
-                    cmd.Parameters.Add("@Passcode", SqlDbType.NVarChar).Value = password;
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
         }
 
         public List<User> GetAll() 

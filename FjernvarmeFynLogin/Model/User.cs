@@ -8,7 +8,6 @@ namespace FjernvarmeFynLogin.Model
 {
     public class User
     {
-        private static int idCount = 1;
         public int UserId { get; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -17,11 +16,6 @@ namespace FjernvarmeFynLogin.Model
         
         public User()
         {
-            Name = "Indtast navn";
-            Email = "Indtast email";
-            Department = "Indtast afdeling";
-            Password = "Indtast password";
-            UserId = idCount++;
         }
     }
 }

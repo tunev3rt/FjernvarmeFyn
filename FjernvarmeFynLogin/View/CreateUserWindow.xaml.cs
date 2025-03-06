@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FjernvarmeFynLogin.Viewmodel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace FjernvarmeFynLogin.View
     /// </summary>
     public partial class CreateUserWindow : Window
     {
+        UserViewModel uvm = new UserViewModel();
         public CreateUserWindow()
         {
             InitializeComponent();
+            DataContext = uvm;
         }
 
         private void confirmBtn_Click(object sender, RoutedEventArgs e)
