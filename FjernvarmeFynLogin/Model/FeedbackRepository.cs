@@ -29,8 +29,8 @@ namespace FjernvarmeFynLogin.Model
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO FEEDBACK (FeedbackType, DateAndTime, PriorityLevel, InternalSystem, DescriptiveText) " +
-                    "VALUES(@FeedbackType,@DateAndTime,@PriorityLevel,@InternalSystem,@DescriptiveText)" +
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO FEEDBACK (FeedbackType, DateAndTime, PriorityLevel, InternalSystem, DescriptiveText, FeedbackStatus) " +
+                    "VALUES(@FeedbackType,@DateAndTime,@PriorityLevel,@InternalSystem,@DescriptiveText,@FeedbackStatus)" +
                     "SELECT @@IDENTITY", con))
                 {
                     cmd.Parameters.Add("@FeedbackType", SqlDbType.NVarChar).Value = feedback.FeedbackType;
@@ -108,6 +108,7 @@ namespace FjernvarmeFynLogin.Model
         }
         public List<Feedback> GetAllUnanswered()
         {
+            tickets.Clear();
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
@@ -137,6 +138,7 @@ namespace FjernvarmeFynLogin.Model
         }
         public List<Feedback> GetAllAccepted()
         {
+            tickets.Clear();
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
@@ -166,6 +168,7 @@ namespace FjernvarmeFynLogin.Model
         }
         public List<Feedback> GetAllSolved()
         {
+            tickets.Clear();
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();

@@ -18,9 +18,9 @@
             <RowDefinition Height="699*"/>
         </Grid.RowDefinitions>
         <Button x:Name="logoutBtn" Content="Log ud" Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left" Margin="38,44,0,0" VerticalAlignment="Top" FontSize="40" Width="300" Height="100"/>
-        <Label x:Name="amountOfUnanswered" Content="0" HorizontalAlignment="Left" Margin="342,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" Grid.Row="1"/>
-        <Label x:Name="amountOfOngoing" Content="0" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1"/>
-        <Label x:Name="amountOfClosed" Content="0" HorizontalAlignment="Left" Margin="1501,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1"/>
+        <Label x:Name="amountOfUnanswered" Content="{Binding UnansweredTickets}" HorizontalAlignment="Left" Margin="342,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" Grid.Row="1"/>
+        <Label x:Name="amountOfOngoing" Content="{Binding OngoingTickets}" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1"/>
+        <Label x:Name="amountOfClosed" Content="{Binding SolvedTickets}" HorizontalAlignment="Left" Margin="1501,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1"/>
         <Label Content="Admin" HorizontalAlignment="Center" Margin="0,31,0,0" VerticalAlignment="Top" FontSize="80" FontFamily="Elephant"/>
         <Label Content="Ubesvaret" HorizontalAlignment="Left" Margin="250,281,0,0" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant"/>
         <Label Content="On-going" HorizontalAlignment="Center" Margin="0,281,0,0" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant"/>
