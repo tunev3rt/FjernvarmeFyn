@@ -1,4 +1,5 @@
 ﻿using FjernvarmeFynLogin.Model;
+using FjernvarmeFynLogin.Viewmodel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,16 +22,15 @@ namespace FjernvarmeFynLogin.View
     /// </summary>
     public partial class SolvedTicketsWindow : Window
     {
-        public ObservableCollection<Feedback> FeedbackItems { get; set; }
-        private List<Feedback> UnsortedFeedback;
-        private FeedbackRepository feedbackRepository;
+        //public ObservableCollection<Feedback> FeedbackItems { get; set; }
+        //FeedbackViewModel fvm = new FeedbackViewModel();
+        //private List<Feedback> UnsortedFeedback;
+        //private FeedbackRepository feedbackRepository;
+        FeedbackViewModel fvm = new FeedbackViewModel(3);
         public SolvedTicketsWindow()
         {
             InitializeComponent();
-            feedbackRepository = new FeedbackRepository();
-            UnsortedFeedback = feedbackRepository.GetAll();
-            FeedbackItems = new ObservableCollection<Feedback>(UnsortedFeedback.Where(f => f.FeedbackStatus == "Solved"));
-            DataContext = this;
+            DataContext = fvm;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
@@ -42,13 +42,13 @@ namespace FjernvarmeFynLogin.View
         {
             if (e.AddedItems.Count > 0)
             {
-                var selectedFeedback = (Feedback)e.AddedItems[0];
+                var selectedFeedback = (FeedbackViewModel)e.AddedItems[0];
                 var detailsWindow = new TicketDetailsWindow(selectedFeedback);
                 detailsWindow.ShowDialog();
                 if (detailsWindow.ToBeDeleted)
                 {
-                    FeedbackItems.Remove(selectedFeedback);
-                    feedbackRepository.Delete(selectedFeedback);
+                    fvm.FeedbackVM.Remove(selectedFeedback);
+                    fvm.Delete(selectedFeedback);
                 }
             }
         }
