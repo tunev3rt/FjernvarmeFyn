@@ -17,7 +17,6 @@ namespace FjernvarmeFynLogin.Viewmodel
         public Feedback feedback;
         private FeedbackRepository feedbackRepo = new FeedbackRepository();
         public ObservableCollection<FeedbackViewModel> FeedbackVM { get; set; }
-        //FeedbackItems = new ObservableCollection<Feedback>(UnsortedFeedback.Where(f => f.FeedbackStatus == "Unanswered"));
 
         public FeedbackViewModel(int window)
         {

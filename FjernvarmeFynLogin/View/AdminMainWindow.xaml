@@ -14,18 +14,23 @@
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="365*"/>
-            <RowDefinition Height="699*"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Button x:Name="logoutBtn" Content="Log ud" Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left" Margin="38,44,0,0" VerticalAlignment="Top" FontSize="40" Width="300" Height="100"/>
-        <Label x:Name="amountOfUnanswered" Content="{Binding UnansweredTickets}" HorizontalAlignment="Left" Margin="342,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" Grid.Row="1"/>
-        <Label x:Name="amountOfOngoing" Content="{Binding OngoingTickets}" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1"/>
-        <Label x:Name="amountOfClosed" Content="{Binding SolvedTickets}" HorizontalAlignment="Left" Margin="1501,150,0,0" VerticalAlignment="Top" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1"/>
-        <Label Content="Admin" HorizontalAlignment="Center" Margin="0,31,0,0" VerticalAlignment="Top" FontSize="80" FontFamily="Elephant"/>
-        <Label Content="Ubesvaret" HorizontalAlignment="Left" Margin="250,281,0,0" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant"/>
-        <Label Content="On-going" HorizontalAlignment="Center" Margin="0,281,0,0" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant"/>
-        <Label Content="Løst" HorizontalAlignment="Left" Margin="1477,281,0,0" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant"/>
-        <Image x:Name="unansweredTickets" Margin="-34,161,1121,70" Source="../Pics/Oval.png" Stretch="Fill" Grid.RowSpan="2" MouseDown="unansweredTickets_MouseDown">
+        <Label x:Name="amountOfUnanswered" Content="{Binding UnansweredTickets}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontFamily="Arial Black" Grid.Row="1" Grid.Column="0"/>
+        <Label x:Name="amountOfOngoing" Content="{Binding OngoingTickets}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1" Grid.Column="1"/>
+        <Label x:Name="amountOfClosed" Content="{Binding SolvedTickets}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1" Grid.Column="2"/>
+        <Label Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" FontFamily="Elephant" Grid.Row="0" Grid.Column="1"/>
+        <Label Content="Ubesvaret" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant" Grid.Row="1" Grid.Column="0"/>
+        <Label Content="On-going" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Løst" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant" Grid.Row="1" Grid.Column="2"/>
+        <Image x:Name="unansweredTickets" Source="../Pics/OvalNew.png" Stretch="Fill" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="500" Width="400" MouseDown="unansweredTickets_MouseDown">
             <Image.Style>
                 <Style TargetType="{x:Type Image}">
                     <Style.Triggers>
@@ -40,7 +45,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Image x:Name="ongoingTickets" Margin="544,161,544,70" Source="../Pics/Oval.png" Stretch="Fill" Grid.RowSpan="2" MouseDown="ongoingTickets_MouseDown">
+        <Image x:Name="ongoingTickets" Source="../Pics/OvalNew.png" Stretch="Fill" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="500" Width="400" MouseDown="ongoingTickets_MouseDown">
             <Image.Style>
                 <Style TargetType="{x:Type Image}">
                     <Style.Triggers>
@@ -55,7 +60,7 @@
                 </Style>
             </Image.Style>
         </Image>
-        <Image x:Name="solvedTickets" Margin="1123,161,-35,70" Source="../Pics/Oval.png" Stretch="Fill" Grid.RowSpan="2" MouseDown="solvedTickets_MouseDown">
+        <Image x:Name="solvedTickets" Source="../Pics/OvalNew.png" Stretch="Fill" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="500" Width="400" MouseDown="solvedTickets_MouseDown">
             <Image.Style>
                 <Style TargetType="{x:Type Image}">
                     <Style.Triggers>
