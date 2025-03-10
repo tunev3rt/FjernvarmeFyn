@@ -16,12 +16,12 @@ using System.Windows.Shapes;
 namespace FjernvarmeFynLogin.View
 {
     /// <summary>
-    /// Interaction logic for SubmitBugWindow.xaml
+    /// Interaction logic for SubmitFeatureWindow.xaml
     /// </summary>
-    public partial class SubmitBugWindow : Window
+    public partial class SubmitFeatureWindow : Window
     {
         CreateTicketViewModel ctvm = new CreateTicketViewModel();
-        public SubmitBugWindow()
+        public SubmitFeatureWindow()
         {
             InitializeComponent();
             DataContext = ctvm;
