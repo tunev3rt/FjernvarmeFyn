@@ -36,12 +36,18 @@ namespace FjernvarmeFynLogin.View
 
         private void wishBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            SubmitWishWindow submitWishWindow = new SubmitWishWindow();
+            {
+                submitWishWindow.ShowDialog();
+            }
         }
 
         private void featureBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            SubmitFeatureWindow submitFeatureWindow = new SubmitFeatureWindow();
+            {
+                submitFeatureWindow.ShowDialog();
+            }
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
