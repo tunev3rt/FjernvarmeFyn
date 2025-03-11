@@ -9,7 +9,7 @@ using FjernvarmeFynLogin.Model;
 
 namespace FjernvarmeFynLogin.Command
 {
-    public class AddTicket_Bug_Command : ICommand
+    public class AddTicketCommand : ICommand
     {
         public event EventHandler? CanExecuteChanged
         {
@@ -45,7 +45,7 @@ namespace FjernvarmeFynLogin.Command
             {
                 Feedback feedback = new Feedback
                 {
-                    FeedbackType = ctvm.FeedbackTypeProp_Bug,
+                    FeedbackType = ctvm.FeedbackTypeProp,
                     FormattedDate = ctvm.FormattedDateProp,
                     PriorityLevel = ctvm.PriorityLevelProp,
                     InternalSystem = ctvm.InternalSystemProp,

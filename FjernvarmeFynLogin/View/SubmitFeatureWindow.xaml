@@ -38,58 +38,27 @@
             <Label Content="VÆLG PRIORITETSNIVEAU" FontSize="30" FontWeight="Bold"/>
 
             <!--Knap 1, højeste prio-->
-            <RadioButton GroupName="1" Name="High" Content="Høj" FontSize="22" VerticalContentAlignment="Center" IsChecked="{Binding PriorityLevelProp, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                <RadioButton.Style>
-                    <Style TargetType="RadioButton">
-                        <Setter Property="IsChecked" Value="False"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding PriorityLevelProp}" Value="3">
-                                <Setter Property="IsChecked" Value="True"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </RadioButton.Style>
-
+            <RadioButton GroupName="1" Name="High" Content="Høj" FontSize="22" VerticalContentAlignment="Center" Checked="High_Checked">
                 <RadioButton.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                 </RadioButton.LayoutTransform>
             </RadioButton>
 
             <!--Knap 2, mellemste prio-->
-            <RadioButton GroupName="1" Name="Medium" Content="Middel" FontSize="22" VerticalContentAlignment="Center" IsChecked="{Binding PriorityLevelProp, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                <RadioButton.Style>
-                    <Style TargetType="RadioButton">
-                        <Setter Property="IsChecked" Value="False"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding PriorityLevelProp}" Value="2">
-                                <Setter Property="IsChecked" Value="True"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </RadioButton.Style>
-
+            <RadioButton GroupName="1" Name="Medium" Content="Middel" FontSize="22" VerticalContentAlignment="Center" Checked="Medium_Checked">
                 <RadioButton.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                 </RadioButton.LayoutTransform>
             </RadioButton>
 
             <!--Knap 3, laveste prio-->
-            <RadioButton GroupName="1" Name="Low" Content="Lav" FontSize="22" VerticalContentAlignment="Center" IsChecked="{Binding PriorityLevelProp, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                <RadioButton.Style>
-                    <Style TargetType="RadioButton">
-                        <Setter Property="IsChecked" Value="False"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding PriorityLevelProp}" Value="1">
-                                <Setter Property="IsChecked" Value="True"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </RadioButton.Style>
-
+            <RadioButton GroupName="1" Name="Low" Content="Lav" FontSize="22" VerticalContentAlignment="Center" Checked="Low_Checked">
                 <RadioButton.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                 </RadioButton.LayoutTransform>
             </RadioButton>
+
+
 
         </StackPanel>
 
@@ -112,7 +81,7 @@
 
 
         <!--Denne button skal bindes til pop-up bekræftelsen, som skal bindes til AddTicketFeatureCommand-->
-        <Button x:Name="confirmBtn" Content="Send Ticket" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" Margin="-150"/>
+        <Button x:Name="confirmBtn" Command="{Binding AddTicketCommand}" CommandParameter="{Binding}" Content="Send Ticket" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" Margin="-150"/>
 
 
     </Grid>

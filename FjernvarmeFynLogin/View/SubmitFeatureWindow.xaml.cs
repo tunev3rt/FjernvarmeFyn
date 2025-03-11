@@ -25,11 +25,26 @@ namespace FjernvarmeFynLogin.View
         {
             InitializeComponent();
             DataContext = ctvm;
+            ctvm.FeedbackTypeProp = "Feature";
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private void High_Checked(object sender, RoutedEventArgs e)
+        {
+            ctvm.PriorityLevelProp = 1;
+        }
+
+        private void Medium_Checked(object sender, RoutedEventArgs e)
+        {
+            ctvm.PriorityLevelProp = 2;
+        }
+
+        private void Low_Checked(object sender, RoutedEventArgs e)
+        {
+            ctvm.PriorityLevelProp = 3;
         }
     }
 }

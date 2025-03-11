@@ -19,9 +19,7 @@ namespace FjernvarmeFynLogin.Viewmodel
         private Feedback feedbackInst;
 
         //Properties til DataBinding
-        public string FeedbackTypeProp_Bug { get; set; } = "Bug";
-        public string FeedbackTypeProp_Wish { get; set; } = "Wish";
-        public string FeedbackTypeProp_Feature { get; set; } = "Feature";
+        public string FeedbackTypeProp { get; set; }
 
         public DateTime FormattedDateProp { get; set; } = DateTime.Now;
 
@@ -60,16 +58,13 @@ namespace FjernvarmeFynLogin.Viewmodel
         //-------------------------------------------------------------------------------------------------
 
         //Command-instanser som bliver sat til selve commanden inde i Command-mappen
-        public ICommand AddTicketBugCommand { get; set; } = new AddTicket_Bug_Command();
-        public ICommand AddTicketWishCommand { get; set; } = new AddTicket_Wish_Command();
-        public ICommand AddTicketFeatureCommand { get; set; } = new AddTicket_Feature_Command();
+        public ICommand AddTicketCommand { get; set; } = new AddTicketCommand();
 
 
         public void AddTicket(Feedback feedback)
         {
             feedbackRepositoryInst.Add(feedback);
         }
-
 
 
 
