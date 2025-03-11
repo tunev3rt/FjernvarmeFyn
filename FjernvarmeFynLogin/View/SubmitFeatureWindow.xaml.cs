@@ -48,5 +48,10 @@ namespace FjernvarmeFynLogin.View
         {
             ctvm.PriorityLevelProp = 3;
         }
+
+        private void userInputTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            textLength.Content = $"{userInputTextBox.Text.Length.ToString()}/500";
+        }
     }
 }

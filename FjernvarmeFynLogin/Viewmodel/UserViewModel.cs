@@ -27,47 +27,63 @@ namespace FjernvarmeFynLogin.Viewmodel
 
         public ICommand LogInCommand { get; set; } = new LogInCommand();
 
-    public Action CloseWindowAction { get; set; }
+        public Action CloseWindowAction { get; set; }
 
         public UserViewModel()
         {
             AddUserCommand = new AddUserCommand(() => CloseWindowAction?.Invoke());
         }
 
-        public UserViewModel(User user)
-        {
-            this.user = user;
-            UserId = user.UserId;
-            Name = user.Name;
-            Email = user.Email;
-            Department = user.Department;
-            Password = user.Password;
-        }
+        //public UserViewModel(User user)
+        //{
+            //this.user = user;
+            //UserId = user.UserId;
+            //Name = user.Name;
+            //Email = user.Email;
+            //Department = user.Department;
+            //Password = user.Password;
+        //}
 
         public void AddUser(User user)
         {
+            //User user = null;
+            //if (!string.IsNullOrEmpty(name) &&
+            //    !string.IsNullOrEmpty(department) &&
+            //    !string.IsNullOrEmpty(email) &&
+            //    !string.IsNullOrEmpty(password))
+            //{
+            //    user = new User()
+            //    {
+            //        Name = name,
+            //        Department = department,
+            //        Email = email,
+            //        Password = password
+            //    };
             userRepo.Add(user);
+            //}
+            //else
+            //    throw new Exception("Not all arguments are valid");
         }
 
-        public void LogIn(string email, string password)
-        {
-            bool adminFound = LogInHandler.LogIn(email, password);
-            if (adminFound)
-            {
-                MessageBox.Show("Login godkendt");
-            }
-            else if (!adminFound)
-            {
-                bool userFound = LogInHandler.LogIn2(email, password);
-                if (userFound)
-                {
-                    MessageBox.Show("Login godkendt");
-                }
-                else if (!userFound)
-                {
-                    MessageBox.Show("Login mislykkedes. Prøv venligst igen");
-                }
-            }
-        }
+        //public void LogIn(string email, string password)
+        //{
+        //    bool adminFound = LogInHandler.LogIn(email, password);
+        //    if (adminFound)
+        //    {
+        //        MessageBox.Show("Login godkendt");
+        //    }
+        //    else if (!adminFound)
+        //    {
+        //        bool userFound = LogInHandler.LogIn2(email, password);
+        //        if (userFound)
+        //        {
+        //            MessageBox.Show("Login godkendt");
+        //        }
+        //        else if (!userFound)
+        //        {
+        //            MessageBox.Show("Login mislykkedes. Prøv venligst igen");
+        //        }
+        //    }
+        //}
     }
 }

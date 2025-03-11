@@ -23,7 +23,7 @@
             <RowDefinition Height="20"/>
             <RowDefinition/>
             <RowDefinition Height="530"/>
-
+            <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -57,15 +57,10 @@
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                 </RadioButton.LayoutTransform>
             </RadioButton>
-
-
-
         </StackPanel>
 
-
-
-        <Label Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Beskriv venligst fejlen her:" FontSize="25" Margin="0, 30, 0, 0"/>
-        <TextBox Grid.Column="2" Grid.Row="2" TextWrapping="Wrap"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="850" Height="450" BorderBrush="Black" BorderThickness="3" Text="{Binding DescriptiveTextProp, UpdateSourceTrigger=PropertyChanged}" FontSize="18"/>
+        <Label Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Beskriv venligst din idé her:" FontSize="25" Margin="0, 30, 0, 0"/>
+        <TextBox x:Name="userInputTextBox" Grid.Column="2" Grid.Row="2" TextWrapping="Wrap"  HorizontalAlignment="Center" MaxLength="500" VerticalAlignment="Bottom" Width="850" Height="450" BorderBrush="Black" BorderThickness="3" Text="{Binding DescriptiveTextProp, UpdateSourceTrigger=PropertyChanged}" FontSize="18" TextChanged="userInputTextBox_TextChanged"/>
 
         <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="200" Width="705" Margin="0, 250, 0, 0">
             <Label Content="VÆLG PÅGÆLDENDE SYSTEM" FontSize="30" FontWeight="Bold"/>
@@ -76,13 +71,9 @@
             </ComboBox>
         </StackPanel>
 
-
-
-
-
+        <Label x:Name="textLength" Grid.Row="3" Grid.Column="2" Content="0/500" FontSize="26" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+        
         <!--Denne button skal bindes til pop-up bekræftelsen, som skal bindes til AddTicketFeatureCommand-->
-        <Button x:Name="confirmBtn" Command="{Binding AddTicketCommand}" CommandParameter="{Binding}" Content="Send Ticket" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" Margin="-150"/>
-
-
+        <Button x:Name="confirmBtn" Command="{Binding AddTicketCommand}" CommandParameter="{Binding}" Content="Send Ticket" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="1" Margin="-150"/>
     </Grid>
 </Window>

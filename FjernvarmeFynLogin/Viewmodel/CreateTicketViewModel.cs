@@ -55,22 +55,17 @@ namespace FjernvarmeFynLogin.Viewmodel
         public string FeedbackStatusProp { get; set; } = "Unanswered";
         public string EmployeeEmailProp { get; set; }
 
-        //-------------------------------------------------------------------------------------------------
-        //-------------------------------------------------------------------------------------------------
-
         //Command-instanser som bliver sat til selve commanden inde i Command-mappen
         public ICommand AddTicketCommand { get; set; }
 
+        //Action-Delegate til at lukke vinduet sammen med AddTicketCommand
         public Action CloseWindowAction { get; set; }
 
-
+        //Metoder
         public void AddTicket(Feedback feedback)
         {
             feedbackRepositoryInst.Add(feedback);
         }
-
-        //-------------------------------------------------------------------------------------------------
-        //-------------------------------------------------------------------------------------------------
 
         //PropertyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -79,6 +74,7 @@ namespace FjernvarmeFynLogin.Viewmodel
 
         //Bare en liste til valg af system der vises i "vælg pågældende system"
         public ObservableCollection<int> ExampleSystemNumbers { get; set; }
+        //Constructor
         public CreateTicketViewModel()
         {
             ExampleSystemNumbers = new ObservableCollection<int>();

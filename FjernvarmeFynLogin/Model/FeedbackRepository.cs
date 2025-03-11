@@ -95,7 +95,8 @@ namespace FjernvarmeFynLogin.Model
                                 PriorityLevel = reader.GetInt32(3),
                                 InternalSystem = reader.GetInt32(4),
                                 DescriptiveText = reader.GetString(5),
-                                FeedbackStatus = reader.GetString(6)
+                                FeedbackStatus = reader.GetString(6),
+                                EmployeeEmail = reader.GetString(7)
                             };
                             tickets.Add(feedback);
                         }
@@ -125,7 +126,8 @@ namespace FjernvarmeFynLogin.Model
                                 PriorityLevel = reader.GetInt32(3),
                                 InternalSystem = reader.GetInt32(4),
                                 DescriptiveText = reader.GetString(5),
-                                FeedbackStatus = reader.GetString(6)
+                                FeedbackStatus = reader.GetString(6),
+                                EmployeeEmail = reader.GetString(7)
                             };
                             tickets.Add(feedback);
                         }
@@ -155,7 +157,8 @@ namespace FjernvarmeFynLogin.Model
                                 PriorityLevel = reader.GetInt32(3),
                                 InternalSystem = reader.GetInt32(4),
                                 DescriptiveText = reader.GetString(5),
-                                FeedbackStatus = reader.GetString(6)
+                                FeedbackStatus = reader.GetString(6),
+                                EmployeeEmail = reader.GetString(7)
                             };
                             tickets.Add(feedback);
                         }
@@ -185,7 +188,8 @@ namespace FjernvarmeFynLogin.Model
                                 PriorityLevel = reader.GetInt32(3),
                                 InternalSystem = reader.GetInt32(4),
                                 DescriptiveText = reader.GetString(5),
-                                FeedbackStatus = reader.GetString(6)
+                                FeedbackStatus = reader.GetString(6),
+                                EmployeeEmail = reader.GetString(7)
                             };
                             tickets.Add(feedback);
                         }

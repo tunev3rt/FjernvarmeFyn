@@ -25,7 +25,7 @@ namespace FjernvarmeFynLogin.View
         {
             InitializeComponent();
             DataContext = ctvm;
-            ctvm.FeedbackTypeProp = "Wish";
+            ctvm.FeedbackTypeProp = "Ønske";
             ctvm.EmployeeEmailProp = currentUserEmail;
             ctvm.CloseWindowAction = () => this.Close();
         }
@@ -49,5 +49,9 @@ namespace FjernvarmeFynLogin.View
             ctvm.PriorityLevelProp = 3;
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            textLength.Content = $"{userInputTextBox.Text.Length.ToString()}/500";
+        }
     }
 }

@@ -11,18 +11,65 @@ namespace FjernvarmeFynLogin.Viewmodel
 {
     public class FeedbackViewModel
     {
+        public Feedback feedback;
+        private FeedbackRepository feedbackRepo = new FeedbackRepository();
         public int UnansweredTickets { get; set; } = 0;
         public int OngoingTickets { get; set; } = 0;
         public int SolvedTickets { get; set; } = 0;
-        public Feedback feedback;
-        private FeedbackRepository feedbackRepo = new FeedbackRepository();
+        public int FeedbackId { get; set; }
+        public string FeedbackType { get; set; }
+        public DateTime FormattedDate { get; set; }
+        public int PriorityLevel { get; set; }
+        public int InternalSystem { get; set; }
+        public string DescriptiveText { get; set; }
+        public string FeedbackStatus { get; set; }
+        public string EmployeeEmail { get; set; }
+        public SolidColorBrush PriorityColor => GetPriorityColor();
         public ObservableCollection<FeedbackViewModel> FeedbackVM { get; set; }
+        public void Update(FeedbackViewModel feedbackViewModel)
+        {
+            feedback = new Feedback
+            {
+                FeedbackId = feedbackViewModel.FeedbackId,
+                FeedbackType = feedbackViewModel.FeedbackType,
+                FormattedDate = feedbackViewModel.FormattedDate,
+                PriorityLevel = feedbackViewModel.PriorityLevel,
+                InternalSystem = feedbackViewModel.InternalSystem,
+                DescriptiveText = feedbackViewModel.DescriptiveText,
+                FeedbackStatus = feedbackViewModel.FeedbackStatus,
+                EmployeeEmail = feedbackViewModel.EmployeeEmail
+            };
+            feedbackRepo.Update(feedback);
+        }
 
+        public void Delete(FeedbackViewModel feedbackViewModel)
+        {
+            feedback = new Feedback
+            {
+                FeedbackId = feedbackViewModel.FeedbackId
+            };
+            feedbackRepo.Delete(feedback);
+        }
+        private SolidColorBrush GetPriorityColor()
+        {
+            return PriorityLevel switch
+            {
+                1 => new SolidColorBrush(Colors.Red),
+                2 => new SolidColorBrush(Colors.Orange),
+                3 => new SolidColorBrush(Colors.Green),
+                _ => new SolidColorBrush(Colors.Gray),
+            };
+        }
+        public FeedbackViewModel()
+        {
+            UnansweredTickets = feedbackRepo.GetAllUnanswered().Count;
+            OngoingTickets = feedbackRepo.GetAllAccepted().Count;
+            SolvedTickets = feedbackRepo.GetAllSolved().Count;
+
+        }
         public FeedbackViewModel(int window)
         {
             FeedbackVM = new ObservableCollection<FeedbackViewModel>();
-            //List<Feedback> UnsortedFeedback = feedbackRepo.GetAll();
-
             if (window == 1)
             {
                 foreach (var feedback in feedbackRepo.GetAllUnanswered())
@@ -48,56 +95,6 @@ namespace FjernvarmeFynLogin.Viewmodel
                 }
             }
         }
-        public FeedbackViewModel()
-        {
-            UnansweredTickets = feedbackRepo.GetAllUnanswered().Count;
-            OngoingTickets = feedbackRepo.GetAllAccepted().Count;
-            SolvedTickets = feedbackRepo.GetAllSolved().Count;
-
-        }
-        public void Update(FeedbackViewModel feedbackViewModel)
-        {
-            feedback = new Feedback
-            {
-                FeedbackId = feedbackViewModel.FeedbackId,
-                FeedbackType = feedbackViewModel.FeedbackType,
-                FormattedDate = feedbackViewModel.FormattedDate,
-                PriorityLevel = feedbackViewModel.PriorityLevel,
-                InternalSystem = feedbackViewModel.InternalSystem,
-                DescriptiveText = feedbackViewModel.DescriptiveText,
-                FeedbackStatus = feedbackViewModel.FeedbackStatus
-            };
-            feedbackRepo.Update(feedback);
-        }
-
-        public void Delete(FeedbackViewModel feedbackViewModel)
-        {
-            feedback = new Feedback
-            {
-                FeedbackId = feedbackViewModel.FeedbackId
-            };
-            feedbackRepo.Delete(feedback);
-        }
-
-        public int FeedbackId { get; set; }
-        public string FeedbackType { get; set; }
-        public DateTime FormattedDate { get; set; }
-        public int PriorityLevel { get; set; }
-        public int InternalSystem { get; set; }
-        public string DescriptiveText { get; set; }
-        public string FeedbackStatus { get; set; }
-        public SolidColorBrush PriorityColor => GetPriorityColor();
-        private SolidColorBrush GetPriorityColor()
-        {
-            return PriorityLevel switch
-            {
-                1 => new SolidColorBrush(Colors.Red),
-                2 => new SolidColorBrush(Colors.Orange),
-                3 => new SolidColorBrush(Colors.Green),
-                _ => new SolidColorBrush(Colors.Gray),
-            };
-        }
-
         public FeedbackViewModel(Feedback feedback)
         {
             this.feedback = feedback;
@@ -108,6 +105,7 @@ namespace FjernvarmeFynLogin.Viewmodel
             InternalSystem = feedback.InternalSystem;
             DescriptiveText = feedback.DescriptiveText;
             FeedbackStatus = feedback.FeedbackStatus;
+            EmployeeEmail = feedback.EmployeeEmail;
         }
     }
 }

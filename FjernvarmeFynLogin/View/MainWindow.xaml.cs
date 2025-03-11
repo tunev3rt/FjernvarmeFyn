@@ -19,7 +19,6 @@ namespace FjernvarmeFynLogin
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainViewModel mvm = new MainViewModel();
         public MainWindow()
         {
             InitializeComponent();
@@ -28,7 +27,7 @@ namespace FjernvarmeFynLogin
         private void createUserBtn_Click(object sender, RoutedEventArgs e)
         {
             CreateUserWindow createUserWindow = new CreateUserWindow();
-            createUserWindow.Show();
+            createUserWindow.ShowDialog();
         }
 
         private void logInBtn_Click(object sender, RoutedEventArgs e)
