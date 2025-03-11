@@ -38,7 +38,7 @@ namespace FjernvarmeFynLogin.View
 
         private void wishBtn_Click(object sender, RoutedEventArgs e)
         {
-            SubmitWishWindow submitWishWindow = new SubmitWishWindow();
+            SubmitWishWindow submitWishWindow = new SubmitWishWindow(CurrentUserEmail);
             {
                 submitWishWindow.ShowDialog();
             }
@@ -46,7 +46,7 @@ namespace FjernvarmeFynLogin.View
 
         private void featureBtn_Click(object sender, RoutedEventArgs e)
         {
-            SubmitFeatureWindow submitFeatureWindow = new SubmitFeatureWindow();
+            SubmitFeatureWindow submitFeatureWindow = new SubmitFeatureWindow(CurrentUserEmail);
             {
                 submitFeatureWindow.ShowDialog();
             }

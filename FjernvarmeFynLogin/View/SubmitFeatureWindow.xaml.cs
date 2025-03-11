@@ -21,11 +21,12 @@ namespace FjernvarmeFynLogin.View
     public partial class SubmitFeatureWindow : Window
     {
         CreateTicketViewModel ctvm = new CreateTicketViewModel();
-        public SubmitFeatureWindow()
+        public SubmitFeatureWindow(string currentUserEmail)
         {
             InitializeComponent();
             DataContext = ctvm;
             ctvm.FeedbackTypeProp = "Feature";
+            ctvm.EmployeeEmailProp = currentUserEmail;
             ctvm.CloseWindowAction = () => this.Close();
         }
 

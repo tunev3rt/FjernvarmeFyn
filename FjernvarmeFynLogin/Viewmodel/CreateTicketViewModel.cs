@@ -19,7 +19,6 @@ namespace FjernvarmeFynLogin.Viewmodel
         private Feedback feedbackInst;
 
         //Properties til DataBinding
-        public string CurrentUserEmail { get; set; }
         public string FeedbackTypeProp { get; set; }
 
         public DateTime FormattedDateProp { get; set; } = DateTime.Now;

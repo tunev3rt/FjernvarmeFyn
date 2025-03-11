@@ -21,11 +21,12 @@ namespace FjernvarmeFynLogin.View
     public partial class SubmitWishWindow : Window
     {
         CreateTicketViewModel ctvm = new CreateTicketViewModel();
-        public SubmitWishWindow()
+        public SubmitWishWindow(string currentUserEmail)
         {
             InitializeComponent();
             DataContext = ctvm;
             ctvm.FeedbackTypeProp = "Wish";
+            ctvm.EmployeeEmailProp = currentUserEmail;
             ctvm.CloseWindowAction = () => this.Close();
         }
 
