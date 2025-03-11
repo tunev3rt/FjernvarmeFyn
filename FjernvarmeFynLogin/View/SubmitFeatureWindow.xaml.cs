@@ -16,23 +16,22 @@ using System.Windows.Shapes;
 namespace FjernvarmeFynLogin.View
 {
     /// <summary>
-    /// Interaction logic for SubmitBugWindow.xaml
+    /// Interaction logic for SubmitFeatureWindow.xaml
     /// </summary>
-    public partial class SubmitBugWindow : Window
+    public partial class SubmitFeatureWindow : Window
     {
         CreateTicketViewModel ctvm = new CreateTicketViewModel();
-        public SubmitBugWindow()
+        public SubmitFeatureWindow()
         {
             InitializeComponent();
             DataContext = ctvm;
-            ctvm.FeedbackTypeProp = "Bug";
+            ctvm.FeedbackTypeProp = "Feature";
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
         private void High_Checked(object sender, RoutedEventArgs e)
         {
             ctvm.PriorityLevelProp = 1;
