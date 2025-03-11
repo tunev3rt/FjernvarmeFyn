@@ -26,6 +26,7 @@ namespace FjernvarmeFynLogin.View
             InitializeComponent();
             DataContext = ctvm;
             ctvm.FeedbackTypeProp = "Wish";
+            ctvm.CloseWindowAction = () => this.Close();
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)

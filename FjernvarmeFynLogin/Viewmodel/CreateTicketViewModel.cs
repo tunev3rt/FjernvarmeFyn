@@ -58,7 +58,9 @@ namespace FjernvarmeFynLogin.Viewmodel
         //-------------------------------------------------------------------------------------------------
 
         //Command-instanser som bliver sat til selve commanden inde i Command-mappen
-        public ICommand AddTicketCommand { get; set; } = new AddTicketCommand();
+        public ICommand AddTicketCommand { get; set; }
+
+        public Action CloseWindowAction { get; set; }
 
 
         public void AddTicket(Feedback feedback)
@@ -88,6 +90,7 @@ namespace FjernvarmeFynLogin.Viewmodel
                 ExampleSystemNumbers.Add(i);
             }
                 InternalSystemProp = 1;
+            AddTicketCommand = new AddTicketCommand(() => CloseWindowAction?.Invoke());
         }
 
 

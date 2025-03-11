@@ -13,13 +13,18 @@ namespace FjernvarmeFynLogin.Command
 {
     public class AddTicketCommand : ICommand
     {
+        private readonly Action closeWindowAction;
+
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-
+        public AddTicketCommand(Action closeWindowAction)
+        {
+            this.closeWindowAction = closeWindowAction;
+        }
 
         public bool CanExecute(object? parameter)
         {
@@ -38,8 +43,6 @@ namespace FjernvarmeFynLogin.Command
             }
             return result;
         }
-
-
 
         public void Execute(object? parameter)
         {
@@ -65,19 +68,9 @@ namespace FjernvarmeFynLogin.Command
                     ctvm.AddTicket(feedback);
                     TicketConfirmationWindow ticketConfirmInst = new TicketConfirmationWindow(new FeedbackViewModel { FeedbackId=feedback.FeedbackId});
                     ticketConfirmInst.ShowDialog();
+                    closeWindowAction?.Invoke();
                 }
-
-               
-
             }
         }
-
-
-
-
-
-
-
-
     }
 }
