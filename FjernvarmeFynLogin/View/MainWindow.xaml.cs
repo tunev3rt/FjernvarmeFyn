@@ -34,7 +34,7 @@ namespace FjernvarmeFynLogin
         private void logInBtn_Click(object sender, RoutedEventArgs e)
         {
             LogInWindow logInWindow = new LogInWindow();
-            logInWindow.Show();
+            logInWindow.ShowDialog();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

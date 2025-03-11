@@ -1,4 +1,5 @@
-﻿using FjernvarmeFynLogin.Model;
+﻿using FjernvarmeFynLogin.Authentication;
+using FjernvarmeFynLogin.Model;
 using FjernvarmeFynLogin.Viewmodel;
 using System;
 using System.Collections.Generic;
@@ -22,15 +23,11 @@ namespace FjernvarmeFynLogin.View
     /// </summary>
     public partial class LogInWindow : Window
     {
-        MainViewModel mvm = new MainViewModel();
+        UserViewModel uvm = new UserViewModel();
         public LogInWindow()
         {
             InitializeComponent();
-        }
-
-        private void confirmBtn_Click(object sender, RoutedEventArgs e)
-        {
-            mvm.LogIn(emailTB.Text, passwordTB.Password);
+            DataContext = uvm;
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e)

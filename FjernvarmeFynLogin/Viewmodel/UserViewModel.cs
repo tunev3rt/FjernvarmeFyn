@@ -1,4 +1,5 @@
-﻿using FjernvarmeFynLogin.Command;
+﻿using FjernvarmeFynLogin.Authentication;
+using FjernvarmeFynLogin.Command;
 using FjernvarmeFynLogin.Model;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,9 @@ namespace FjernvarmeFynLogin.Viewmodel
 
         public ICommand AddUserCommand { get; set; }
 
-        public Action CloseWindowAction { get; set; }
+        public ICommand LogInCommand { get; set; } = new LogInCommand();
+
+    public Action CloseWindowAction { get; set; }
 
         public UserViewModel()
         {
@@ -44,6 +47,27 @@ namespace FjernvarmeFynLogin.Viewmodel
         public void AddUser(User user)
         {
             userRepo.Add(user);
+        }
+
+        public void LogIn(string email, string password)
+        {
+            bool adminFound = LogInHandler.LogIn(email, password);
+            if (adminFound)
+            {
+                MessageBox.Show("Login godkendt");
+            }
+            else if (!adminFound)
+            {
+                bool userFound = LogInHandler.LogIn2(email, password);
+                if (userFound)
+                {
+                    MessageBox.Show("Login godkendt");
+                }
+                else if (!userFound)
+                {
+                    MessageBox.Show("Login mislykkedes. Prøv venligst igen");
+                }
+            }
         }
     }
 }

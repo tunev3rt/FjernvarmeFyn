@@ -43,5 +43,10 @@ namespace FjernvarmeFynLogin.View
         {
             new SolvedTicketsWindow().Show();
         }
+
+        private void logoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -49,26 +49,5 @@ namespace FjernvarmeFynLogin.Viewmodel
             else
                 throw new Exception("Not all arguments are valid");
         }
-
-        public void LogIn(string email, string password)
-        {
-            bool adminFound = LogInHandler.LogIn(email, password);
-            if (adminFound)
-            {
-                MessageBox.Show("Login godkendt");
-            }
-            else if (!adminFound)
-            {
-                bool userFound = LogInHandler.LogIn2(email, password);
-                if (userFound)
-                {
-                    MessageBox.Show("Login godkendt");
-                }
-                else if (!userFound)
-                {
-                    MessageBox.Show("Login mislykkedes. Prøv venligst igen");
-                }
-            }
-        }
     }
 }
