@@ -64,7 +64,7 @@
 
 
         <Label Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Beskriv venligst fejlen her:" FontSize="25" Margin="0, 30, 0, 0"/>
-        <TextBox Grid.Column="2" Grid.Row="2" TextWrapping="Wrap"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="850" Height="450" BorderBrush="Black" BorderThickness="3" Text="{Binding DescriptiveTextProp, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="2" Grid.Row="2" TextWrapping="Wrap"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="850" Height="450" BorderBrush="Black" BorderThickness="3" Text="{Binding DescriptiveTextProp, UpdateSourceTrigger=PropertyChanged}" FontSize="18"/>
 
         <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="200" Width="705" Margin="0, 250, 0, 0">
             <Label Content="VÆLG PÅGÆLDENDE SYSTEM" FontSize="30" FontWeight="Bold"/>

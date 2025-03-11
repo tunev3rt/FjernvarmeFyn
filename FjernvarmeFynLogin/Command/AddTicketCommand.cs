@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using FjernvarmeFynLogin.Model;
+using System.Windows;
+using FjernvarmeFynLogin.View;
 
 namespace FjernvarmeFynLogin.Command
 {
@@ -43,19 +45,38 @@ namespace FjernvarmeFynLogin.Command
         {
             if (parameter is CreateTicketViewModel ctvm)
             {
-                Feedback feedback = new Feedback
+                MessageBoxResult result = MessageBox.Show(
+                "Er du helt sikker på at fortsætte og oprette ticket?",
+                "Bekræft handling",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
                 {
-                    FeedbackType = ctvm.FeedbackTypeProp,
-                    FormattedDate = ctvm.FormattedDateProp,
-                    PriorityLevel = ctvm.PriorityLevelProp,
-                    InternalSystem = ctvm.InternalSystemProp,
-                    DescriptiveText = ctvm.DescriptiveTextProp,
-                    FeedbackStatus = ctvm.FeedbackStatusProp
-                };
-                ctvm.AddTicket(feedback);
+                    Feedback feedback = new Feedback
+                    {
+                        FeedbackType = ctvm.FeedbackTypeProp,
+                        FormattedDate = ctvm.FormattedDateProp,
+                        PriorityLevel = ctvm.PriorityLevelProp,
+                        InternalSystem = ctvm.InternalSystemProp,
+                        DescriptiveText = ctvm.DescriptiveTextProp,
+                        FeedbackStatus = ctvm.FeedbackStatusProp
+                    };
+                    ctvm.AddTicket(feedback);
+                    TicketConfirmationWindow ticketConfirmInst = new TicketConfirmationWindow(new FeedbackViewModel { FeedbackId=feedback.FeedbackId});
+                    ticketConfirmInst.ShowDialog();
+                }
+
+               
 
             }
         }
+
+
+
+
+
+
 
 
     }

@@ -26,10 +26,10 @@
         <Label x:Name="amountOfUnanswered" Content="{Binding UnansweredTickets}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontFamily="Arial Black" Grid.Row="1" Grid.Column="0"/>
         <Label x:Name="amountOfOngoing" Content="{Binding OngoingTickets}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1" Grid.Column="1"/>
         <Label x:Name="amountOfClosed" Content="{Binding SolvedTickets}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontFamily="Arial Black" RenderTransformOrigin="0.222,0.48" Grid.Row="1" Grid.Column="2"/>
-        <Label Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="80" FontFamily="Elephant" Grid.Row="0" Grid.Column="1"/>
-        <Label Content="Ubesvaret" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant" Grid.Row="1" Grid.Column="0"/>
-        <Label Content="On-going" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant" Grid.Row="1" Grid.Column="1"/>
-        <Label Content="Løst" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" FontFamily="Elephant" Grid.Row="1" Grid.Column="2"/>
+        <Label Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="85" Grid.Row="0" Grid.Column="1" FontWeight="Bold"/>
+        <Label Content="Ubesvaret" Margin="0,100" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+        <Label Content="On-going" Margin="0,100" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" Grid.Row="1" Grid.Column="1" FontWeight="Bold"/>
+        <Label Content="Løst" Margin="0,100" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" Grid.Row="1" Grid.Column="2" FontWeight="Bold"/>
         <Image x:Name="unansweredTickets" Source="../Pics/OvalNew.png" Stretch="Fill" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="500" Width="400" MouseDown="unansweredTickets_MouseDown">
             <Image.Style>
                 <Style TargetType="{x:Type Image}">
