@@ -45,8 +45,8 @@ namespace FjernvarmeFynLogin
 
         private void ButtonToGoToTicketWindow_Click(object sender, RoutedEventArgs e)
         {
-            CreateTicketWindow ticketWindow = new CreateTicketWindow();
-            ticketWindow.Show();
+            //CreateTicketWindow ticketWindow = new CreateTicketWindow();
+            //ticketWindow.Show();
         }
     }
 }

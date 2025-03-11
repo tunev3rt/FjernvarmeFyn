@@ -26,8 +26,8 @@ namespace FjernvarmeFynLogin.Model
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO FEEDBACK (FeedbackType, DateAndTime, PriorityLevel, InternalSystem, DescriptiveText, FeedbackStatus) " +
-                    "VALUES(@FeedbackType,@DateAndTime,@PriorityLevel,@InternalSystem,@DescriptiveText,@FeedbackStatus)" +
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO FEEDBACK (FeedbackType, DateAndTime, PriorityLevel, InternalSystem, DescriptiveText, FeedbackStatus, EmployeeEmail) " +
+                    "VALUES(@FeedbackType,@DateAndTime,@PriorityLevel,@InternalSystem,@DescriptiveText,@FeedbackStatus,@EmployeeEmail)" +
                     "SELECT @@IDENTITY", con))
                 {
                     cmd.Parameters.Add("@FeedbackType", SqlDbType.NVarChar).Value = feedback.FeedbackType;
@@ -36,6 +36,7 @@ namespace FjernvarmeFynLogin.Model
                     cmd.Parameters.Add("@InternalSystem", SqlDbType.Int).Value = feedback.InternalSystem;
                     cmd.Parameters.Add("@DescriptiveText", SqlDbType.NVarChar).Value = feedback.DescriptiveText;
                     cmd.Parameters.Add("@FeedbackStatus", SqlDbType.NVarChar).Value = feedback.FeedbackStatus;
+                    cmd.Parameters.Add("@EmployeeEmail", SqlDbType.NVarChar).Value = feedback.EmployeeEmail;
                     feedback.FeedbackId = Convert.ToInt32(cmd.ExecuteScalar());
                     tickets.Add(feedback);
                 }

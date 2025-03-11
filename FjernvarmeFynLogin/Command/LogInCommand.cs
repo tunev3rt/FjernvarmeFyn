@@ -47,7 +47,7 @@ namespace FjernvarmeFynLogin.Command
                     bool userFound = LogInHandler.LogIn2(uvm.Email, uvm.Password);
                     if (userFound)
                     {
-                        CreateTicketWindow ctw = new CreateTicketWindow();
+                        CreateTicketWindow ctw = new CreateTicketWindow(uvm.Email);
                         ctw.ShowDialog();
                     }
                     else if (!userFound)

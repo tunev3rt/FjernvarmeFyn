@@ -17,6 +17,7 @@ namespace FjernvarmeFynLogin.Model
         public string DescriptiveText { get; set; }
         public string FeedbackStatus { get; set; } = "Unanswered";
         public SolidColorBrush PriorityColor { get; set; }
+        public string EmployeeEmail { get; set; }
 
         public Feedback()
         {

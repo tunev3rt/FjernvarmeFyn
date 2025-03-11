@@ -63,7 +63,8 @@ namespace FjernvarmeFynLogin.Command
                         PriorityLevel = ctvm.PriorityLevelProp,
                         InternalSystem = ctvm.InternalSystemProp,
                         DescriptiveText = ctvm.DescriptiveTextProp,
-                        FeedbackStatus = ctvm.FeedbackStatusProp
+                        FeedbackStatus = ctvm.FeedbackStatusProp,
+                        EmployeeEmail = ctvm.EmployeeEmailProp
                     };
                     ctvm.AddTicket(feedback);
                     TicketConfirmationWindow ticketConfirmInst = new TicketConfirmationWindow(new FeedbackViewModel { FeedbackId=feedback.FeedbackId});

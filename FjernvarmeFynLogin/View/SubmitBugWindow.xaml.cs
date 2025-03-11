@@ -21,11 +21,12 @@ namespace FjernvarmeFynLogin.View
     public partial class SubmitBugWindow : Window
     {
         CreateTicketViewModel ctvm = new CreateTicketViewModel();
-        public SubmitBugWindow()
+        public SubmitBugWindow(string currentUserEmail)
         {
             InitializeComponent();
             DataContext = ctvm;
             ctvm.FeedbackTypeProp = "Bug";
+            ctvm.EmployeeEmailProp = currentUserEmail;
             ctvm.CloseWindowAction = () => this.Close();
         }
 

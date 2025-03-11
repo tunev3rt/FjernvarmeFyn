@@ -19,16 +19,18 @@ namespace FjernvarmeFynLogin.View
     /// </summary>
     public partial class CreateTicketWindow : Window
     {
-        public CreateTicketWindow()
+        public string CurrentUserEmail { get; set; }
+        public CreateTicketWindow(string currentUserEmail)
         {
             InitializeComponent();
+            CurrentUserEmail = currentUserEmail;
         }
 
      
 
         private void bugBtn_Click(object sender, RoutedEventArgs e)
         {
-            SubmitBugWindow submitBugWindow = new SubmitBugWindow();
+            SubmitBugWindow submitBugWindow = new SubmitBugWindow(CurrentUserEmail);
             {
                 submitBugWindow.ShowDialog();
             }
