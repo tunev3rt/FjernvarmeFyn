@@ -69,8 +69,6 @@ namespace FjernvarmeFynLogin.Viewmodel
             feedbackRepositoryInst.Add(feedback);
         }
 
-
-
         //-------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------
 
@@ -78,8 +76,6 @@ namespace FjernvarmeFynLogin.Viewmodel
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-
 
         //Bare en liste til valg af system der vises i "vælg pågældende system"
         public ObservableCollection<int> ExampleSystemNumbers { get; set; }
@@ -93,25 +89,5 @@ namespace FjernvarmeFynLogin.Viewmodel
                 InternalSystemProp = 1;
             AddTicketCommand = new AddTicketCommand(() => CloseWindowAction?.Invoke());
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
