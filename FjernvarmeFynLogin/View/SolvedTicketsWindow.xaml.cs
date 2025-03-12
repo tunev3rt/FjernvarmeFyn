@@ -22,10 +22,6 @@ namespace FjernvarmeFynLogin.View
     /// </summary>
     public partial class SolvedTicketsWindow : Window
     {
-        //public ObservableCollection<Feedback> FeedbackItems { get; set; }
-        //FeedbackViewModel fvm = new FeedbackViewModel();
-        //private List<Feedback> UnsortedFeedback;
-        //private FeedbackRepository feedbackRepository;
         FeedbackViewModel fvm = new FeedbackViewModel(3);
         public SolvedTicketsWindow()
         {
