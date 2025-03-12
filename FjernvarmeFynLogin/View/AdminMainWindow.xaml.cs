@@ -32,16 +32,19 @@ namespace FjernvarmeFynLogin.View
         private void unansweredTickets_MouseDown(object sender, MouseButtonEventArgs e) // Åbner nyt vindue med ubesvarede tickets
         {
             new UnansweredTicketsWindow().Show();
+            this.Close();
         }
 
         private void ongoingTickets_MouseDown(object sender, MouseButtonEventArgs e) // Åbner nyt vindue med igangværende tickets
         {
             new OngoingTicketsWindow().Show();
+            this.Close();
         }
 
         private void solvedTickets_MouseDown(object sender, MouseButtonEventArgs e) // Åbner nyt vindue med løste tickets
         {
             new SolvedTicketsWindow().Show();
+            this.Close();
         }
 
         private void logoutBtn_Click(object sender, RoutedEventArgs e)

@@ -36,6 +36,8 @@ namespace FjernvarmeFynLogin.View
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            AdminMainWindow adminMainWindow = new AdminMainWindow();
+            adminMainWindow.Show();
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
