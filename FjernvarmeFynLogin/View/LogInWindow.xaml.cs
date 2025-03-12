@@ -27,6 +27,7 @@ namespace FjernvarmeFynLogin.View
         public LogInWindow()
         {
             InitializeComponent();
+            uvm.CloseWindowAction = () => this.Close();
             DataContext = uvm;
         }
 

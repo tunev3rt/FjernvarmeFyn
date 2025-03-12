@@ -13,10 +13,17 @@ namespace FjernvarmeFynLogin.Command
 {
     public class LogInCommand : ICommand
     {
+        private readonly Action closeWindowAction;
+
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public LogInCommand(Action closeWindowAction)
+        {
+            this.closeWindowAction = closeWindowAction;
         }
 
         public bool CanExecute(object? parameter)
@@ -40,6 +47,7 @@ namespace FjernvarmeFynLogin.Command
                 if (adminFound)
                 {
                     AdminMainWindow amw = new AdminMainWindow();
+                    closeWindowAction?.Invoke();
                     amw.ShowDialog();
                 }
                 else if (!adminFound)
@@ -48,6 +56,7 @@ namespace FjernvarmeFynLogin.Command
                     if (userFound)
                     {
                         CreateTicketWindow ctw = new CreateTicketWindow(uvm.Email);
+                        closeWindowAction?.Invoke();
                         ctw.ShowDialog();
                     }
                     else if (!userFound)

@@ -25,13 +25,14 @@ namespace FjernvarmeFynLogin.Viewmodel
 
         public ICommand AddUserCommand { get; set; }
 
-        public ICommand LogInCommand { get; set; } = new LogInCommand();
+        public ICommand LogInCommand { get; set; }
 
         public Action CloseWindowAction { get; set; }
 
         public UserViewModel()
         {
             AddUserCommand = new AddUserCommand(() => CloseWindowAction?.Invoke());
+            LogInCommand = new LogInCommand(() => CloseWindowAction?.Invoke());
         }
 
         //public UserViewModel(User user)

@@ -13,11 +13,16 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <Button x:Name="backBtn" Content="Tilbage" Style="{DynamicResource ButtonStyle}" HorizontalAlignment="Left" Margin="38,44,0,0" VerticalAlignment="Top" FontSize="40" Width="300" Height="100" Click="backBtn_Click"/>
+        <Label Content="Igangværende" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="85" FontWeight="Bold"/>
         <ListBox ItemsSource="{Binding FeedbackVM}" 
                  BorderThickness="0" Background="Transparent"
                  HorizontalAlignment="Center" VerticalAlignment="Center"
-                 Width="1000" Height="700" SelectionChanged="ListBox_SelectionChanged">
+                 Width="1000" Height="700" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
