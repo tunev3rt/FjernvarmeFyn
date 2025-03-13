@@ -28,7 +28,6 @@ namespace FjernvarmeFynLogin.View
         public TicketDetailsWindow(FeedbackViewModel ticket)
         {
             InitializeComponent();
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             CurrentTicket = ticket;
             DataContext = CurrentTicket;
             if (CurrentTicket.FeedbackStatus == "Accepted")

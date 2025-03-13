@@ -1,12 +1,14 @@
-﻿<Window x:Class="FjernvarmeFynLogin.View.TicketDetailsWindow"
+﻿<Window x:Class="FjernvarmeFynLogin.View.UserTicketDetailsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FjernvarmeFynLogin.View"
+        mc:Ignorable="d"
         Title="Detaljer" WindowStyle="None"
         ResizeMode="NoResize" Width="600" Height="430" Icon="../Pics/FjernvarmeFynLogoNoTextPNG.png"
         Background="#2D2D30" WindowStartupLocation="CenterScreen">
-
     <Grid Margin="10">
-        
         <Border Background="#333" Padding="20">
             <StackPanel>
 
@@ -38,19 +40,10 @@
                     <TextBlock Text="{Binding DescriptiveText}" FontSize="16" Foreground="White" 
                                TextWrapping="Wrap" MaxHeight="150"/>
                 </Border>
-
-                <!-- Buttons -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,10,0,0">
-                    <Button x:Name="deleteBtn" Content="Slet" Width="120" Height="40" 
-                            Background="#6C6C6C" Foreground="White" FontSize="16"
-                            BorderThickness="0" Click="Delete_Click"/>
-
-                    <Button x:Name="acceptBtn" Content="Accepter" Width="120" Height="40" 
-                            Background="#2F8F2F" Foreground="White" FontSize="16"
-                            BorderThickness="0" Margin="15,0,0,0"
-                            Click="Accept_Click"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                    <Label Content="Ticket status:" FontWeight="Bold" FontSize="20" Foreground="White"/>
+                    <Label x:Name="ticketStatusLabel" FontSize="20" Foreground="White"/>
                 </StackPanel>
-
             </StackPanel>
         </Border>
         <!-- Close Button -->

@@ -49,6 +49,7 @@ namespace FjernvarmeFynLogin.View
                     fvm.Delete(selectedFeedback);
                 }
             }
+            listBox.SelectedItem = null;
         }
     }
 }
