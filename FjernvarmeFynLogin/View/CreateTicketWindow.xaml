@@ -31,13 +31,11 @@
         </Grid.RowDefinitions>
 
         <Image Source="../Pics/FjernvarmeFynLogoNoTextPNG.png" Width="200" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="1" Grid.Column="5"/>
-
-
         <Button x:Name="backBtn" Content="Tilbage" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Click="backBtn_Click"/>
         <Button x:Name="bugBtn" Content="Fejlmelding" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="325" Height="325" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" Click="bugBtn_Click"/>
         <Button x:Name="wishBtn" Content="Ønske" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="324" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="3" Click="wishBtn_Click" Margin="0,275,0,0"/>
         <Button x:Name="featureBtn" Content="Feature" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="325" Height="325" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="4" Click="featureBtn_Click"/>
-        <Button x:Name="earlierBtn" Content="Tidligere sager" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="5"/>
+        <Button x:Name="earlierBtn" Content="Tidligere sager" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="5" Click="earlierBtn_Click"/>
         <Label Content="Opret Ticket" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" VerticalAlignment="Bottom" FontSize="80" FontWeight="Bold" HorizontalContentAlignment="Center"/>
     </Grid>
 </Window>

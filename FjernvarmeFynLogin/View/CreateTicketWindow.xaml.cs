@@ -26,8 +26,6 @@ namespace FjernvarmeFynLogin.View
             CurrentUserEmail = currentUserEmail;
         }
 
-     
-
         private void bugBtn_Click(object sender, RoutedEventArgs e)
         {
             SubmitBugWindow submitBugWindow = new SubmitBugWindow(CurrentUserEmail);
@@ -55,6 +53,14 @@ namespace FjernvarmeFynLogin.View
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void earlierBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PreviousTicketsWindow previousTicketsWindow = new PreviousTicketsWindow(CurrentUserEmail);
+            {
+                previousTicketsWindow.ShowDialog();
+            }
         }
     }
 }

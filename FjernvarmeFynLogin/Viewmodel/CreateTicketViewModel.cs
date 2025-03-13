@@ -82,7 +82,7 @@ namespace FjernvarmeFynLogin.Viewmodel
             {
                 ExampleSystemNumbers.Add(i);
             }
-                InternalSystemProp = 1;
+            InternalSystemProp = 1;
             AddTicketCommand = new AddTicketCommand(() => CloseWindowAction?.Invoke());
         }
     }

@@ -86,7 +86,6 @@
                     </Setter>
                 </Style>
             </ListBox.Resources>
-
         </ListBox>
     </Grid>
 </Window>

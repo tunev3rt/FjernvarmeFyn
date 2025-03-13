@@ -95,6 +95,15 @@ namespace FjernvarmeFynLogin.Viewmodel
                 }
             }
         }
+        public FeedbackViewModel(string email)
+        {
+            FeedbackVM = new ObservableCollection<FeedbackViewModel>();
+            foreach (var feedback in feedbackRepo.GetAllBySpecificEmail(email))
+            {
+                FeedbackViewModel feedbackViewModel = new FeedbackViewModel(feedback);
+                FeedbackVM.Add(feedbackViewModel);
+            }
+        }
         public FeedbackViewModel(Feedback feedback)
         {
             this.feedback = feedback;

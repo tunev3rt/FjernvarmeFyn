@@ -198,5 +198,37 @@ namespace FjernvarmeFynLogin.Model
             }
             return tickets;
         }
+
+        public List<Feedback> GetAllBySpecificEmail(string email)
+        {
+            tickets.Clear();
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM FEEDBACK WHERE EmployeeEmail = @EmployeeEmail", con))
+                {
+                    cmd.Parameters.Add("@EmployeeEmail", SqlDbType.NVarChar).Value = email;
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Feedback feedback = new Feedback()
+                            {
+                                FeedbackId = reader.GetInt32(0),
+                                FeedbackType = reader.GetString(1),
+                                FormattedDate = reader.GetDateTime(2),
+                                PriorityLevel = reader.GetInt32(3),
+                                InternalSystem = reader.GetInt32(4),
+                                DescriptiveText = reader.GetString(5),
+                                FeedbackStatus = reader.GetString(6),
+                                EmployeeEmail = reader.GetString(7)
+                            };
+                            tickets.Add(feedback);
+                        }
+                    }
+                }
+            }
+            return tickets;
+        }
     }
 }
