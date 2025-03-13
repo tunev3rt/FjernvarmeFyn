@@ -30,7 +30,7 @@
         <Button x:Name="backBtn" Content="Tilbage" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Click="backBtn_Click"/>
 
         <Image Source="../Pics/FjernvarmeFynLogoNoTextPNG.png" Width="200" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2"/>
-        <Label Height="80" Width="324" Content="Fejlmelding" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Grid.ColumnSpan="2" Margin="0,87,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Fejlmelding" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="85" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
 
         <!--Ved ikke om det skal være lav, middel og høj eller noget andet, men det kan godt ændres. -Nicholas, 6/3-25 21:08-->
@@ -62,12 +62,64 @@
 
 
 
-        <Label Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Beskriv venligst fejlen her:" FontSize="25" Margin="0, 30, 0, 0"/>
-        <TextBox x:Name="userInputTextBox" Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" HorizontalAlignment="Center" MaxLength="500" VerticalAlignment="Bottom" Width="850" Height="450" BorderBrush="Black" BorderThickness="3" Text="{Binding DescriptiveTextProp, UpdateSourceTrigger=PropertyChanged}" FontSize="18" TextChanged="userInputTextBox_TextChanged"/>
-
+        <Label Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Content="Beskriv venligst fejlen her:" FontSize="30" FontWeight="Bold" Margin="0, 30, 0, 0"/>
+        <TextBox x:Name="userInputTextBox" 
+ Grid.Column="2" Grid.Row="2" 
+ TextWrapping="Wrap" 
+ HorizontalAlignment="Center" 
+ VerticalAlignment="Bottom" 
+ Width="850" Height="450" 
+ MaxLength="500" 
+ Padding="15" 
+ FontSize="24"
+ Background="White" 
+ Foreground="Black"
+ Text="{Binding DescriptiveTextProp, UpdateSourceTrigger=PropertyChanged}" 
+ TextChanged="userInputTextBox_TextChanged">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="FontSize" Value="24"/>
+                    <Setter Property="Padding" Value="15"/>
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="BorderBrush" Value="Gray"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect Color="Black" Opacity="0.2" BlurRadius="8"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="15" 
+                        Padding="{TemplateBinding Padding}">
+                                    <ScrollViewer x:Name="PART_ContentHost"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#FFC638"/>
+                            <Setter Property="BorderThickness" Value="3"/>
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="#FFC638" Opacity="0.5" BlurRadius="12"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
         <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="200" Width="705" Margin="0, 250, 0, 0">
             <Label Content="VÆLG PÅGÆLDENDE SYSTEM" FontSize="30" FontWeight="Bold"/>
-            <ComboBox Height="40" Width="280" HorizontalAlignment="Left" ItemsSource="{Binding ExampleSystemNumbers}" SelectedItem="{Binding InternalSystemProp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ComboBox Height="40" Width="280" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Left" ItemsSource="{Binding ExampleSystemNumbers}" SelectedItem="{Binding InternalSystemProp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ComboBox.LayoutTransform>
                     <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                 </ComboBox.LayoutTransform>
