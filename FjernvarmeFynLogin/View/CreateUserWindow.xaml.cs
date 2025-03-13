@@ -32,5 +32,15 @@ namespace FjernvarmeFynLogin.View
         {
             this.Close();
         }
+
+        private void createPassPB_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            uvm.Password = createPassPB.Password;
+        }
+
+        private void confirmPassPB_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            uvm.PasswordConfirm = confirmPassPB.Password;
+        }
     }
 }

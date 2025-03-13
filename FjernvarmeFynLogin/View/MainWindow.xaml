@@ -21,8 +21,5 @@
         <Image Source="../Pics/FjernvarmeFynLogoPNG.png" Grid.Row="0" HorizontalAlignment="Center" Height="250"/>
         <Button x:Name="logInBtn" Style="{DynamicResource ButtonStyle}" Content="Log ind" FontWeight="Bold" Height="150" Width="800" FontSize="30" Grid.Row="1" Click="logInBtn_Click"/>
         <Button x:Name="createUserBtn" Style="{DynamicResource ButtonStyle}" Content="Opret bruger" FontWeight="Bold" Height="150" Width="800" FontSize="30" Grid.Row="2" VerticalAlignment="Top" Click="createUserBtn_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Height="100" Width="100" Grid.Row="2" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button x:Name="ButtonToGoToTicketWindow" Content="Tickets" HorizontalAlignment="Left" Height="100" Width="100" Grid.Row="2" VerticalAlignment="Center" Click="ButtonToGoToTicketWindow_Click"/>
-        
     </Grid>
 </Window>

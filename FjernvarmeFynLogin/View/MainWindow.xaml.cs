@@ -35,17 +35,5 @@ namespace FjernvarmeFynLogin
             LogInWindow logInWindow = new LogInWindow();
             logInWindow.ShowDialog();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            AdminMainWindow adminMainWindow = new AdminMainWindow();
-            adminMainWindow.Show();
-        }
-
-        private void ButtonToGoToTicketWindow_Click(object sender, RoutedEventArgs e)
-        {
-            //CreateTicketWindow ticketWindow = new CreateTicketWindow();
-            //ticketWindow.Show();
-        }
     }
 }

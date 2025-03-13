@@ -31,7 +31,7 @@
         <Label Content="Indtast email:" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Label Content="Indtast password:" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <TextBox x:Name="emailTB" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="80" Width="1200" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="passwordTB" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" FontSize="50" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="80" Width="1200" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="passwordTB" FontSize="50" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="80" Width="1200" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" PasswordChanged="passwordTB_PasswordChanged"/>
         <Button x:Name="confirmBtn" Style="{DynamicResource ButtonStyle}" Command="{Binding LogInCommand}" CommandParameter="{Binding}" Content="Log ind"
                 FontSize="40" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Width="500" Height="100" IsDefault="True"/>
         <Button x:Name="backBtn" Content="Tilbage" Style="{DynamicResource ButtonStyle}" FontSize="40" Width="300" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Click="backBtn_Click"/>
